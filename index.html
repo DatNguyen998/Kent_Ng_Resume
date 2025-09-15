@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nguyen Thanh Dat - Portfolio</title>
+
+  <!--
+    - emailjs
+  -->
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+  <!--
+    - jQuery link
+  -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <!--
+    - toastr link
+  -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="assets/images/logo.ico" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!--
+    - #MAIN
+  -->
+
+  <main>
+
+    <!--
+      - #SIDEBAR
+    -->
+
+    <aside class="sidebar" data-sidebar>
+
+      <div class="sidebar-info">
+
+        <figure class="avatar-box">
+          <img src="assets/images/Spring.jpg" alt="Kent Ng" width="90">
+        </figure>
+
+        <div class="info-content">
+          <h1 class="name" title="Kent Nguyen">Nguyen Thanh Dat</h1>
+
+          <p class="title">Middle Bussiness Analyst</p>
+		  <p class="title">SAP/Odoo/ERP system </p>
+        </div>
+
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
+
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+
+
+      </div>
+
+      <div class="sidebar-info_more">
+
+        <div class="separator"></div>
+
+        <ul class="contacts-list">
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
+
+              <a href="mailto:datntt98@gmail.com" class="contact-link">datntt98@gmail@gmail.com</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Phone</p>
+
+              <a href="tel:+84 702727507" class="contact-link">(+84) 70-2727-507</a>
+            </div>
+		
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="calendar-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Birthday</p>
+
+              <time datetime="1998-09-29">September, 1998</time>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Location</p>
+
+              <address>Ho Chi Minh City, Vietnam</address>
+            </div>
+
+          </li>
+
+        </ul>
+
+        <div class="separator"></div>
+
+        <ul class="social-list">
+
+          <li class="social-item">
+            <a href="https://github.com/tony71200" class="social-link" target="_blank">
+              <ion-icon name="logo-github"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="https://www.linkedin.com/in/datnguyen2909" class="social-link" target="_blank">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="https://scholar.google.com/citations?user=r3tfrQcAAAAJ&hl" class="social-link" target="_blank">
+              <ion-icon name="school-outline"></ion-icon> <!-- dùng icon thay thế -->
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="https://www.instagram.com/nttdat2909/" class="social-link" target="_blank">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+
+      </div>
+
+    </aside>
+
+
+
+
+
+    <!--
+      - #main-content
+    -->
+
+    <div class="main-content">
+
+      <!--
+        - #NAVBAR
+      -->
+
+      <nav class="navbar">
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <button class="navbar-link  active" data-nav-link>About</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Resume</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Publications</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Portfolio</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Contact</button>
+          </li>
+
+        </ul>
+
+      </nav>
+
+
+
+
+
+      <!--
+        - #ABOUT
+      -->
+
+      <article class="about  active" data-page="about">
+
+        <header>
+          <h2 class="h2 article-title">About me</h2>
+        </header>
+
+        <section class="about-text">
+          <p>I’m an AI Engineer who loves turning research into things people actually use.
+          With a Master’s in Computer Science from <a href="https://www.ncku.edu.tw/" style="display: inline; color: var(--orange-yellow-crayola);">National Cheng Kung University (NCKU)</a>, Taiwan.
+          I specialize in
+                <strong>Artificial Intelligence</strong>, 
+                <strong>Machine Learning</strong>, 
+                <strong>Deep Learning</strong>, <strong>computer vision</strong> and <strong>industrial automation</strong>
+          <p>I focus on optimizing <strong>Large Language Models (LLMs)</strong> and <strong>computer vision</strong>.</p>
+          systems for edge devices and industrial platforms—aiming for the sweet spot of accuracy, scalability,
+          and computational efficiency.</p>
+
+          <p>I’m originally from Danang city and earned my Bachelor’s degree at <a href="https://dut.udn.vn/" style="display: inline; color: var(--orange-yellow-crayola);">Danang University of Science and Technology</a>.
+          During my master’s, I worked as a graduate researcher at the
+          <a href="http://robotics.csie.ncku.edu.tw/" target="_blank" rel="noopener" style="display: inline; color: var(--orange-yellow-crayola);">Robotics Lab, NCKU</a>,
+          contributing to medical imaging projects such as lung CT dataset curation, tumor detection models,
+          and 3D reconstruction for analysis.</p>
+
+          <p>Beyond engineering, I see AI as both tool and craft—something that can connect with design, creativity,
+          and everyday life. That mindset keeps me building, experimenting, and sharing.
+          I’m always open to collaborations, research ideas, and meaningful products.
+          Feel free to reach out, explore my <a href="https://github.com/tony71200" style="display: inline; color: var(--orange-yellow-crayola);">GitHub</a>,
+          or download <a href="assets/resume/Long_Resume.pdf" target="_blank" style="display: inline; color: var(--orange-yellow-crayola); text-decoration: underline;">my Resume</a>.</p>
+
+
+        </section>
+
+
+        <!--
+          - service
+        -->
+
+      <section class="service">
+          <h3 class="h3 service-title">What I'm Doing</h3>
+          <ul class="service-list">
+        <!-- ITEM 1: full-width hàng trên -->
+              <li class="service-item">
+                  <div class="service-icon-box">
+                      <img src="https://cdnjs.cloudflare.com/ajax/libs/simple-icons/9.7.0/tensorflow.svg" alt="AI" class="service-icon">
+                  </div>
+                  <div class="service-content-box">
+                      <h4 class="h4 service-item-title">AI & Machine Learning</h4>
+                      <p class="service-item-text">
+              I design end-to-end ML and Computer Vision systems—from clean data pipelines and model training to evaluation and deployment on edge and servers.
+              Recent work expands into LLMs/NLP (retrieval, lightweight fine-tuning, agent workflows) to connect vision and language.
+              The goal: efficient, reliable solutions that ship to production with clear metrics.
+                      </p>
+                  </div>
+              </li>
+              <!-- ITEM 2: cột trái hàng dưới -->
+              <li class="service-item">
+                  <div class="service-icon-box">
+                      <img src="https://cdnjs.cloudflare.com/ajax/libs/simple-icons/9.7.0/linux.svg" alt="Embedded Systems" class="service-icon">
+                  </div>
+                  <div class="service-content-box">
+                      <h4 class="h4 service-item-title">Embedded Systems</h4>
+                      <p class="service-item-text">
+              I build real-time, AI-enabled embedded software that integrates cameras, sensors, and hardware for robotics and IoT.
+              I care about low latency, robust I/O, and maintainable code that runs well on constrained devices.
+                      </p>
+                  </div>
+              </li>
+              <li class="service-item">
+                  <div class="service-icon-box">
+                      <img src="https://cdnjs.cloudflare.com/ajax/libs/simple-icons/9.7.0/microsoftacademic.svg" alt="Research" class="service-icon">
+                  </div>
+                  <div class="service-content-box">
+                      <h4 class="h4 service-item-title">Research & Development</h4>
+                      <p class="service-item-text">
+              I turn ideas into working prototypes fast—experiment, measure, iterate.
+              Interests include intelligent systems, robotics, and deep learning, with a focus on methods that transfer to production and are backed by clear ablations.
+                      </p>
+                  </div>
+              </li>
+          </ul>
+        </section> 
+
+
+        <!--
+          - testimonials
+        -->
+
+      <section class="testimonials">
+
+        <h3 class="h3 testimonials-title">REFERENCES</h3>
+
+        <ul class="testimonials-list has-scrollbar">
+
+          <li class="testimonials-item">
+            <div class="content-card" data-testimonials-item>
+
+              <figure class="testimonials-avatar-box">
+                <img src="assets/images/jjlien.png" alt="Prof. James Jenn-Jier Lien" width="60" data-testimonials-avatar>
+              </figure>
+
+              <h4 class="h4 testimonials-item-title" data-testimonials-title>Prof. James Jenn-Jier Lien</h4>
+
+              <div class="testimonials-text" data-testimonials-text>
+                <p>
+                Dept.ofCSIE, NCKU
+                jjien@csie.ncku.edu.tw
+                </p>
+              </div>
+
+            </div>
+          </li>
+          
+          <!-- <li class="testimonials-item">
+            <div class="content-card" data-testimonials-item>
+
+              <figure class="testimonials-avatar-box">
+                <img src="" alt="Ph.D Khoa" width="60" data-testimonials-avatar>
+              </figure>
+
+              <h4 class="h4 testimonials-item-title" data-testimonials-title>Ph.D P. Dang Khoa</h4>
+
+              <div class="testimonials-text" data-testimonials-text>
+                <p>
+                  
+                </p>
+              </div>
+
+            </div>
+          </li> -->
+
+        </ul>
+
+      </section>
+
+
+        <!--
+          - testimonials modal
+        -->
+          <!--
+          - testimonials modal
+        -->
+
+
+        <div class="modal-container" data-modal-container>
+
+          <div class="overlay" data-overlay></div>
+
+          <section class="testimonials-modal">
+
+            <button class="modal-close-btn" data-modal-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+            <div class="modal-img-wrapper">
+              <figure class="modal-avatar-box">
+                <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
+              </figure>
+
+              <img src="./assets/images/icon-quote.svg" alt="quote icon">
+            </div>
+
+            <div class="modal-content">
+
+              <h4 class="h3 modal-title" data-modal-title>Daniel lewis</h4>
+
+              <!-- <time datetime="2021-06-14">14 June, 2021</time> -->
+
+              <div data-modal-text>
+                <p>
+                  Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
+                  lot of experience
+                  and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
+                  consectetur adipiscing
+                  elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
+                </p>
+              </div>
+
+            </div>
+
+          </section>
+
+        </div>
+
+      </article>
+
+      <!--
+        - #RESUME
+      -->
+
+      <article class="resume" data-page="resume">
+
+        <header>
+          <h2 class="h2 article-title">Resume</h2>
+        </header>
+
+        <!-- EXPERIENCE -->
+        <section class="timeline">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+            <h3 class="h3">Experience</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+              <h4 class="h4">Contrel Technology Co. Ltd</h4>
+              <h5 class="h5 timeline-item-title">Machine Learning Engineer</h5>
+              <span>Jul 2023 – Present · Taiwan</span>
+              <p class="timeline-text">
+                • Developed & deployed YOLO-based defect detection integrated with HALCON (80%+), with custom post-processing to reduce false positives/noise.<br>
+                • Built & optimized a C# inference pipeline using Microsoft.ML and ONNX Runtime for faster, more reliable positioning detection.<br>
+                • Designed a LangChain-based multilingual chatbot (Simplified Chinese) to retrieve technical docs for operators (troubleshooting & info lookup).
+              </p>
+            </li>
+
+            <li class="timeline-item">
+              <h4 class="h4">Robotic Lab, National Cheng Kung University (NCKU)</h4>
+              <h5 class="h5 timeline-item-title">Research Assistant</h5>
+              <span>Jan 2021 – Jan 2023 · Tainan, Taiwan</span>
+              <p class="timeline-text">
+                • Curated lung CT datasets for NCKU Hospital (acquisition, cleaning, annotation) and built a comprehensive database for research/training.<br>
+                • Developed deep learning models for lung tumor detection from CT scans.<br>
+                • Implemented 3D reconstruction to visualize tumors and lungs for medical analysis.
+              </p>
+            </li>
+
+            <li class="timeline-item">
+              <h4 class="h4">D-Soft, JSC</h4>
+              <h5 class="h5 timeline-item-title">Mobile Developer & ML Engineer</h5>
+              <span>Jan 2019 – Jan 2020 · Danang, Vietnam</span>
+              <p class="timeline-text">
+                • Built FaceLog (Android) with FaceNet & ANN; optimized real-time face recognition for mobile devices.
+              </p>
+            </li>
+
+          </ol>
+        </section>
+
+        <!-- EDUCATION -->
+        <section class="timeline">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+            <h3 class="h3">Education</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+              <h4 class="h4">National Cheng Kung University (NCKU), Taiwan</h4>
+              <span>Jan 2021 – Jan 2023 · Tainan, Taiwan</span>
+              <p class="timeline-text">
+                Master of Computer Science (CSIE) — GPA: 3.96/4.5; Appreciation for NCKU Vietnamese Student Association (2021).
+              </p>
+            </li>
+
+            <li class="timeline-item">
+              <h4 class="h4">Danang University of Technology, Vietnam</h4>
+              <span>Jan 2015 – Jan 2020 · Danang, Vietnam</span>
+              <p class="timeline-text">
+                B.Eng. in Electronic & Telecommunication Engineering — GPA: 3.65/4; Pioneer Scientific Research Club (2015–2020); Deputy leader, Electronic & Telecommunication Youth Union (2016–2019).
+              </p>
+            </li>
+
+          </ol>
+        </section>
+
+        <!-- TECHNICAL SKILLS -->
+        <section class="skill">
+          <h3 class="h3 skills-title">Technical Skills</h3>
+          <ul class="skills-list content-card">
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">Programming</h5>
+                <data value="90">Python · C++ · C# · Java · JavaScript</data>
+              </div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 90%;"></div></div>
+            </li>
+
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">ML/DL Frameworks</h5>
+                <data value="85">PyTorch · TensorFlow · TensorRT · ONNX · Microsoft.ML</data>
+              </div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 85%;"></div></div>
+            </li>
+
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">CV & Tools</h5>
+                <data value="85">OpenCV · HALCON · Qt · Git · Visual Studio — Models: YOLO · Transformers · LLMs (Llama, Mistral, GPT-3.5)</data>
+              </div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 85%;"></div></div>
+            </li>
+
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">Deployment & OS</h5>
+                <data value="80">Jetson · Raspberry Pi · Docker · Linux · Windows</data>
+              </div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 80%;"></div></div>
+            </li>
+          </ul>
+        </section>
+
+        <!-- SOFT SKILLS -->
+        <section class="skill">
+          <h3 class="h3 skills-title">Soft Skills</h3>
+          <ul class="skills-list content-card">
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">Leadership</h5>
+                <data value="85">—</data>
+              </div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 85%;"></div></div>
+            </li>
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">Critical / Design Thinking</h5>
+                <data value="85">—</data>
+              </div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 85%;"></div></div>
+            </li>
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">Teamwork & Communication</h5>
+                <data value="80">—</data>
+              </div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 80%;"></div></div>
+            </li>
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">Problem-solving & Presentation</h5>
+                <data value="80">—</data>
+              </div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 80%;"></div></div>
+            </li>
+          </ul>
+        </section>
+
+      </article>
+
+
+
+
+      <!--
+        - #Publications
+      -->
+
+
+      <article class="Publications" data-page="publications">
+
+        <header>
+          <h2 class="h2 article-title">Publications</h2>
+        </header>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+            <h3 class="h3">2025</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item" style="margin-bottom: 20px;">
+              <h4 class="h4" style="margin: 0;">
+                <!-- TODO: add DOI/URL if available -->
+                <a href="#" target="_blank" style="color: #ffffff; text-decoration: none;">
+                  3D Interactive Segmentation for Lung Nodule Labeling
+                </a>
+              </h4>
+              <h5 class="h5 timeline-item-title" style="margin: 5px 0; color: #cccccc;">
+                Phong-Phu Le, <strong>Thanh-Long Nguyen</strong>, Chao-Chung Chang, Chia-Ying Lin, Yi-Ting Yen, Yau-Lin Tseng, Ching-Ting Tu, Jenn-Jier James Lien
+              </h5>
+              <span>CVGIP 2025 — August 2025</span>
+              <p class="timeline-text" style="margin-top: 6px;">
+                Method: iSegFormer + STCN; mNoC 9.1 @ 85% IoU, 12.4 @ 90% IoU on NCKUH dataset.
+              </p>
+            </li>
+
+          </ol>
+
+        </section>
+
+      </article>
+
+
+
+
+      <!--
+        - #PORTFOLIO
+      -->
+
+      <article class="portfolio" data-page="portfolio">
+
+        <header>
+          <h2 class="h2 article-title">Portfolio</h2>
+        </header>
+
+        <section class="projects">
+
+          <!-- Giữ filter như template; items phía dưới thuộc CV/Experience -->
+          <ul class="filter-list">
+            <li class="filter-item"><button class="active" data-filter-btn>All</button></li>
+            <li class="filter-item"><button data-filter-btn>Machine Learning & Deep Learning</button></li>
+            <li class="filter-item"><button data-filter-btn>Computer Vision</button></li>
+            <li class="filter-item"><button data-filter-btn>NLP</button></li>
+          </ul>
+
+          <div class="filter-select-box">
+            <button class="filter-select" data-select>
+              <div class="select-value" data-selecct-value>Select category</div>
+              <div class="select-icon"><ion-icon name="chevron-down"></ion-icon></div>
+            </button>
+            <ul class="select-list">
+              <li class="select-item"><button data-select-item>All</button></li>
+              <li class="select-item"><button data-select-item>Machine Learning & Deep Learning</button></li>
+              <li class="select-item"><button data-select-item>Computer Vision</button></li>
+              <li class="select-item"><button data-select-item>NLP</button></li>
+            </ul>
+          </div>
+
+          <ul class="project-list">
+
+            <!-- Computer Vision -->
+            <li class="project-item active" data-filter-item data-category="computer vision">
+              <a href="#" target="_blank">
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <!-- TODO: add image path for Wafer Defect Detection -->
+                  <img src="" alt="Wafer Defect Detection" loading="lazy">
+                </figure>
+                <h3 class="project-title">Defect Detection in Wafer Manufacturing</h3>
+                <p class="project-category">Computer Vision</p>
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="computer vision">
+              <a href="#" target="_blank">
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <!-- TODO: add image path for Positioning Detection Pipeline -->
+                  <img src="" alt="C# ONNX Runtime Inference Pipeline" loading="lazy">
+                </figure>
+                <h3 class="project-title">C# ONNX Runtime Inference Pipeline</h3>
+                <p class="project-category">Computer Vision</p>
+              </a>
+            </li>
+
+            <!-- NLP -->
+            <li class="project-item active" data-filter-item data-category="nlp">
+              <a href="#" target="_blank">
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <!-- TODO: add image path for Multilingual Docs Chatbot -->
+                  <img src="" alt="Multilingual Docs Chatbot (LangChain)" loading="lazy">
+                </figure>
+                <h3 class="project-title">Multilingual Docs Chatbot (LangChain)</h3>
+                <p class="project-category">NLP</p>
+              </a>
+            </li>
+
+            <!-- ML & DL -->
+            <li class="project-item active" data-filter-item data-category="machine learning & deep learning">
+              <a href="#" target="_blank">
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <!-- TODO: add image path for Lung Tumor Detection & 3D Reconstruction -->
+                  <img src="" alt="Lung Tumor Detection & 3D Reconstruction" loading="lazy">
+                </figure>
+                <h3 class="project-title">Lung Tumor Detection & 3D Reconstruction</h3>
+                <p class="project-category">Machine Learning & Deep Learning</p>
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="machine learning & deep learning">
+              <a href="#" target="_blank">
+                <figure class="project-img">
+                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                  <!-- TODO: add image path for FaceLog (Face Recognition on Android) -->
+                  <img src="" alt="FaceLog (Face Recognition on Android)" loading="lazy">
+                </figure>
+                <h3 class="project-title">FaceLog — Mobile Face Recognition</h3>
+                <p class="project-category">Machine Learning & Deep Learning</p>
+              </a>
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+
+
+      <!--
+        - #CONTACT
+      -->
+
+      <article class="contact" data-page="contact">
+
+        <header>
+          <h2 class="h2 article-title">Contact</h2>
+        </header>
+
+        <!-- Map: pinned to No. 2, Lane 86, Yidong Rd, East District (Tainan) -->
+        <section class="mapbox" data-mapbox>
+          <figure>
+            <!-- 22.992677, 120.22829 -->
+            <iframe
+              src="https://www.google.com/maps?q=22.992677,120.22829&z=18&output=embed"
+              width="100%" height="300" style="border:0;" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <figcaption style="font-size:0.9rem; color:#667085; margin-top:8px;">
+              No. 2, Lane 86, Yidong Rd, East District, Tainan — Coordinates: 22.992677, 120.22829
+            </figcaption>
+          </figure>
+        </section>
+
+        <!-- Replace Contact Form with a single email button -->
+        <section class="contact-form">
+          
+          <ul class="social-list">
+            <li class="social-item">
+              <a class="form-btn" href="mailto:tlong9648@gmail.com" aria-label="Send email to Long">
+              <ion-icon name="paper-plane"></ion-icon>
+              <span>Contact</span>
+              </a>
+            </li>
+            <li class="social-item">
+              <a href="https://www.facebook.com/nttdat2909/" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
+                <ion-icon name="logo-facebook"></ion-icon>
+                
+              </a>
+            </li>
+            <li class="social-item">
+              <a href="https://www.instagram.com/nttdat2909/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+                <ion-icon name="logo-instagram"></ion-icon>
+                
+              </a>
+            </li>
+          </ul>
+        </section>
+
+      </article>
+
+
+    </div>
+
+  </main>
+
+
+
+
+
+  <footer>
+    <p>&copy; 2025 Nguyen Thanh Dat</p>
+  </footer>
+  <!--
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
