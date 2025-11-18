@@ -571,112 +571,104 @@
       </article>
 
 
+	<!--
+		#PORTFOLIO
+	-->
 
-      <!--
-        - #PORTFOLIO
-      -->
+<article class="portfolio" data-page="portfolio">
 
-      <article class="portfolio" data-page="portfolio">
+  <header>
+    <h2 class="h2 article-title">Portfolio</h2>
+  </header>
 
-        <header>
-          <h2 class="h2 article-title">Portfolio</h2>
-        </header>
+  <section class="projects">
 
-        <section class="projects">
+    <!-- Filter buttons -->
+    <ul class="filter-list">
+      <li class="select-item"><button data-select-item data-value="all">All</button></li>
+      <li class="select-item"><button data-select-item data-value="erp">Enterprise Resource Planning</button></li>
+      <li class="select-item"><button data-select-item data-value="web">Website Development</button></li>
+      <li class="select-item"><button data-select-item data-value="strategy">Business Strategy Consulting</button></li>
+    </ul>
 
-          <!-- Giữ filter như template; items phía dưới thuộc CV/Experience -->
-          <ul class="filter-list">
-              <li class="select-item"><button data-select-item data-value="all">All</button></li>
-              <li class="select-item"><button data-select-item data-value="erp">Enterprise Resource Planning</button></li>
-              <li class="select-item"><button data-select-item data-value="web">Website Development</button></li>
-              <li class="select-item"><button data-select-item data-value="strategy">Business Strategy Consulting</button></li>
-          </ul>
+    <div class="filter-select-box">
+      <button class="filter-select" data-select>
+        <div class="select-value" data-select-value>Select category</div>
+        <div class="select-icon"><ion-icon name="chevron-down"></ion-icon></div>
+      </button>
+      <ul class="select-list">
+        <li class="select-item"><button data-select-item data-value="all">All</button></li>
+        <li class="select-item"><button data-select-item data-value="erp">Enterprise Resource Planning</button></li>
+        <li class="select-item"><button data-select-item data-value="web">Website Development</button></li>
+        <li class="select-item"><button data-select-item data-value="strategy">Business Strategy Consulting</button></li>
+      </ul>
+    </div>
 
-          <div class="filter-select-box">
-            <button class="filter-select" data-select>
-              <div class="select-value" data-selecct-value>Select category</div>
-              <div class="select-icon"><ion-icon name="chevron-down"></ion-icon></div>
-            </button>
-            <ul class="select-list">
-              <li class="select-item"><button data-select-item data-value="all">All</button></li>
-              <li class="select-item"><button data-select-item data-value="erp">Enterprise Resource Planning</button></li>
-              <li class="select-item"><button data-select-item data-value="web">Website Development</button></li>
-              <li class="select-item"><button data-select-item data-value="strategy">Business Strategy Consulting</button></li>
-            </ul>
-          </div>
+    <ul class="project-list">
 
-          <ul class="project-list">
+      <!-- ERP Setup -->
+      <li class="project-item active" data-filter-item data-category="erp">
+        <a href="#" target="_blank">
+          <figure class="project-img">
+            <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+            <img src="./assets/images/2015.png" alt="Odoo Implementation Enterprises Resources Planning System" loading="lazy">
+          </figure>
+          <h3 class="project-title">TM Healthcare & Beauty</h3>
+          <p class="project-category">Enterprises Resources Planning System</p>
+        </a>
+      </li>
 
-            <!-- ERP Setup -->
-            <li class="project-item active" data-filter-item data-category="erp">
-              <a href="#" target="_blank">
-                <figure class="project-img">
-                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
-                  <!-- TODO: add image path for TM Healthcare & Beauty -->
-                  <img src="./assets/images/2015.png" alt="Odoo Implementation Enterprises Resources Planning System" loading="lazy">
-                </figure>
-                <h3 class="project-title">TM Healthcare & Beauty</h3>
-                <p class="project-category">Enterprises Resources Planning System</p>
-              </a>
-            </li>
+      <li class="project-item active" data-filter-item data-category="web">
+        <a href="#" target="_blank">
+          <figure class="project-img">
+            <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+            <img src="./assets/images/2025.png" alt="Ruby Angels" loading="lazy">
+          </figure>
+          <h3 class="project-title">Ruby Angels Fashion</h3>
+          <p class="project-category">Website Development</p>
+        </a>
+      </li>
 
-            <li class="project-item active" data-filter-item data-category="web">
-              <a href="#" target="_blank">
-                <figure class="project-img">
-                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
-                  <!-- TODO: add image path for Ruby Angels -->
-                  <img src="./assets/images/2025.png" alt="Ruby Angels" loading="lazy">
-                </figure>
-                <h3 class="project-title">Ruby Angels Fashion</h3>
-                <p class="project-category">Website Development</p>
-              </a>
-            </li>
+      <!-- Victoria Dang - Realtor -->
+      <li class="project-item active" data-filter-item data-category="web">
+        <a href="#" target="_blank">
+          <figure class="project-img">
+            <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+            <img src="./assets/images/2025.png" alt="Victoria Dang" loading="lazy">
+          </figure>
+          <h3 class="project-title">Victoria Dang</h3>
+          <p class="project-category">Website Development</p>
+        </a>
+      </li>
 
-            <!-- Victoria Dang - Realtor -->
-            <li class="project-item active" data-filter-item data-category="web">
-              <a href="#" target="_blank">
-                <figure class="project-img">
-                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
-                  <!-- TODO: create a showcase website to illustrate the milestones of client's success -->
-                  <img src="./assets/images/2025.png" alt="Victoria Dang" loading="lazy">
-                </figure>
-                <h3 class="project-title">Victoria Dang</h3>
-                <p class="project-category">Website Develop</p>
-              </a>
-            </li>
+      <!-- Business Strategy Consultant-->
+      <li class="project-item active" data-filter-item data-category="strategy">
+        <a href="#" target="_blank">
+          <figure class="project-img">
+            <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+            <img src="./assets/images/2025.png" alt="Eavesdrop" loading="lazy">
+          </figure>
+          <h3 class="project-title">Eavesdrop</h3>
+          <p class="project-category">Business Strategy Consultancy</p>
+        </a>
+      </li>
 
-            <!-- Business Strategy Consultant-->
-            <li class="project-item active" data-filter-item data-category="strategy">
-              <a href="#" target="_blank">
-                <figure class="project-img">
-                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
-                  <!-- TODO: add image path for Eavesdrop -->
-                  <img src="./assets/images/2025.png" alt="Eavesdrop" loading="lazy">
-                </figure>
-                <h3 class="project-title">Eavesdrop</h3>
-                <p class="project-category">Business Strategy Consultance</p>
-              </a>
-            </li>
+      <li class="project-item active" data-filter-item data-category="strategy">
+        <a href="#" target="_blank">
+          <figure class="project-img">
+            <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+            <img src="./assets/images/2025.png" alt="Findingschools" loading="lazy">
+          </figure>
+          <h3 class="project-title">Findingschools</h3>
+          <p class="project-category">Business Strategy Consultancy</p>
+        </a>
+      </li>
 
-            <li class="project-item active" data-filter-item data-category="strategy">
-              <a href="#" target="_blank">
-                <figure class="project-img">
-                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
-                  <!-- TODO: add image path for Findingschools -->
-                  <img src="./assets/images/2025.png" alt="Findingschools" loading="lazy">
-                </figure>
-                <h3 class="project-title">Findingschools</h3>
-                <p class="project-category">Business Strategy Consultance</p>
-              </a>
-            </li>
+    </ul>
 
-          </ul>
+  </section>
 
-        </section>
-
-      </article>
-
-
+</article>
 
 
       <!--
