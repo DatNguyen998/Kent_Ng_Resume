@@ -1,62 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nguyen Thanh Dat - Portfolio</title>
-
-  <!-- emailjs -->
+  <!--- emailjs  -->
   <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-
-  <!-- jQuery link -->
+  <!--- jQuery link -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-  <!-- toastr link -->
+  <!--
+    - toastr link
+  -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-
-  <!-- favicon -->
+  <!--
+    - favicon
+  -->
   <link rel="shortcut icon" href="assets/images/logo.ico" type="image/x-icon">
-
-  <!-- custom css link -->
+  <!--
+    - custom css link
+  -->
   <link rel="stylesheet" href="./assets/css/style.css">
-
-  <!-- google font link -->
+  <!--
+    - google font link
+  -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
-  <!-- #MAIN -->
+  <!--
+    - #MAIN
+  -->
   <main>
-
-    <!-- #SIDEBAR -->
+    <!--
+      - #SIDEBAR
+    -->
     <aside class="sidebar" data-sidebar>
-
       <div class="sidebar-info">
         <figure class="avatar-box">
           <img src="assets/images/Spring.jpg" alt="Kent Ng" width="90">
         </figure>
-
         <div class="info-content">
           <h1 class="name" title="Kent Nguyen">Nguyen Thanh Dat</h1>
           <p class="title">Bussiness Analyst</p>
-          <p class="title">SAP/Odoo/ERP system </p>
+  <p class="title">SAP/Odoo/ERP system </p>
         </div>
-
         <button class="info_more-btn" data-sidebar-btn>
           <span>Show Contacts</span>
           <ion-icon name="chevron-down"></ion-icon>
         </button>
       </div>
-
       <div class="sidebar-info_more">
         <div class="separator"></div>
-
         <ul class="contacts-list">
           <li class="contact-item">
             <div class="icon-box">
@@ -67,7 +65,6 @@
               <a href="mailto:datntt98@gmail.com" class="contact-link">datntt98@gmail.com</a>
             </div>
           </li>
-
           <li class="contact-item">
             <div class="icon-box">
               <ion-icon name="phone-portrait-outline"></ion-icon>
@@ -77,19 +74,20 @@
               <a href="tel:+84 702727507" class="contact-link">(+84) 70-2727-507</a>
             </div>
           </li>
-
           <li class="contact-item">
             <div class="icon-box">
+
               <ion-icon name="calendar-outline"></ion-icon>
+
             </div>
             <div class="contact-info">
+
               <p class="contact-title">Birthday</p>
               <time datetime="1998-09-29">September, 1998</time>
             </div>
           </li>
-
           <li class="contact-item">
-            <div class="icon-box">
+           <div class="icon-box">
               <ion-icon name="location-outline"></ion-icon>
             </div>
             <div class="contact-info">
@@ -98,9 +96,7 @@
             </div>
           </li>
         </ul>
-
         <div class="separator"></div>
-
         <ul class="social-list">
           <li class="social-item">
             <a href="https://github.com/datnguyen998" class="social-link" target="_blank">
@@ -114,7 +110,7 @@
           </li>
           <li class="social-item">
             <a href="https://scholar.google.com/citations?user=r3tfrQcAAAAJ&hl" class="social-link" target="_blank">
-              <ion-icon name="school-outline"></ion-icon>
+              <ion-icon name="school-outline"></ion-icon> <!-- dùng icon thay thế -->
             </a>
           </li>
           <li class="social-item">
@@ -125,15 +121,17 @@
         </ul>
       </div>
     </aside>
-
-    <!-- #main-content -->
+    <!--
+      - #main-content
+    -->
     <div class="main-content">
-
-      <!-- #NAVBAR -->
+      <!--
+        - #NAVBAR
+      -->
       <nav class="navbar">
         <ul class="navbar-list">
           <li class="navbar-item">
-            <button class="navbar-link active" data-nav-link>About</button>
+            <button class="navbar-link  active" data-nav-link>About</button>
           </li>
           <li class="navbar-item">
             <button class="navbar-link" data-nav-link>Resume</button>
@@ -146,62 +144,156 @@
           </li>
         </ul>
       </nav>
-
-      <!-- #ABOUT -->
-      <article class="about active" data-page="about">
+      <!--
+        - #ABOUT
+      -->
+      <article class="about  active" data-page="about">
         <header>
           <h2 class="h2 article-title">About me</h2>
         </header>
-
         <section class="about-text">
-          <p> I’m a Business Analyst with a strong foundation in product thinking and technical systems, experienced in delivering enterprise-scale solutions across finance & accounting, robotics, and AI. Successfully led the go-live of a complex $8M financial system, reducing processing time by 30% and improving operational efficiency. Eager to learn and grow in tech-driven environments, I thrive in cross-functional teams, enjoy solving system challenges, and continuously seek opportunities to bridge business needs with scalable digital solutions. I specialize in <strong> ERP system </strong>, <strong> Financial & payment platform </strong>, <strong> Workflow optimization</strong>, <strong>System integration</strong> and <strong>industrial automation</strong>
-          <p>I’m originally from Danang city and earned my Bachelor’s degree at <a href="https://due.udn.vn/" target="_blank" rel="noopener" style="display: inline; color: var(--orange-yellow-crayola);">Danang University of Economic</a>.</p>
-          <p>Beyond my expertise, I see AI as both tool and craft—something that can connect with design, creativity, and everyday life. That mindset keeps me building, experimenting, and sharing. I’m always open to collaborations, research ideas, and meaningful products. Feel free to reach out, explore my <a href="https://github.com/DatNguyen998" style="display: inline; color: var(--orange-yellow-crayola);">GitHub</a>, or download <a href="assets/resume/Corporate Resume (HCM).pdf" target="_blank" style="display: inline; color: var(--orange-yellow-crayola); text-decoration: underline;">my Resume</a>.</p>
-        </section>
+          <p> I’m a Business Analyst with a strong foundation in product thinking and technical systems, experienced in delivering enterprise-scale solutions across finance & accounting, robotics, and AI. Successfully led the go-live of a complex $8M financial system, reducing processing time by 30% and improving operational efficiency.
+  Eager to learn and grow in tech-driven environments, I thrive in cross-functional teams, enjoy solving system challenges, and continuously seek opportunities to bridge business needs with scalable digital solutions.
+          I specialize in
 
-        <!-- service -->
-        <section class="service">
+                <strong> ERP system </strong>, 
+
+                <strong> Financial & payment platform </strong>, 
+
+                <strong> Workflow optimization</strong>, <strong>System integration</strong> and <strong>industrial automation</strong>
+         
+          <p>I’m originally from Danang city and earned my Bachelor’s degree at <a href="https://due.udn.vn/" target="_blank" rel="noopener" style="display: inline; color: var(--orange-yellow-crayola);">Danang University of Economic</a>.
+          </p>
+          <p>Beyond my expertise, I see AI as both tool and craft—something that can connect with design, creativity, and everyday life. That mindset keeps me building, experimenting, and sharing.
+
+          I’m always open to collaborations, research ideas, and meaningful products.
+
+  Feel free to reach out, explore my <a href="https://github.com/DatNguyen998" style="display: inline; color: var(--orange-yellow-crayola);">GitHub</a>,
+
+          or download <a href="assets/resume/Corporate Resume (HCM).pdf" target="_blank" style="display: inline; color: var(--orange-yellow-crayola); text-decoration: underline;">my Resume</a>.</p>
+        </section>
+        <!--
+          - service
+        -->
+      <section class="service">
           <h3 class="h3 service-title">What I'm Doing</h3>
           <ul class="service-list">
-            <li class="service-item">
-              <div class="service-icon-box">
-                <img src="https://cdnjs.cloudflare.com/ajax/libs/simple-icons/9.7.0/tensorflow.svg" alt="AI" class="service-icon">
-              </div>
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">SAP middleware ERP</h4>
-                <p class="service-item-text">
-                  • Led go-live of a high-impact $8M enterprise finance system integrating Nelnet/Xetta, achieving a 30% reduction in processing time and cutting accounting labor costs.<br>
-                  • Integrated multiple platforms (Studylink, PeopleSoft, Workday) to streamline payment and enrollment workflows.<br>
-                  • Collaborated cross-functionally with PMs, engineers, and solution architects to define product and system requirements for automation.
-                  • Streamlined booking and charging systems, reducing errors in fee allocation and improving ledger accuracy.
-                </p>
-              </div>
-            </li>
+        <!-- ITEM 1: full-width hàng trên -->
+              <li class="service-item">
+                  <div class="service-icon-box">
+                      <img src="https://cdnjs.cloudflare.com/ajax/libs/simple-icons/9.7.0/tensorflow.svg" alt="AI" class="service-icon">
+                  </div>
+                  <div class="service-content-box">
+                      <h4 class="h4 service-item-title">SAP middleware ERP</h4>
+                      <p class="service-item-text">
+              • Led go-live of a high-impact $8M enterprise finance system integrating Nelnet/Xetta, achieving a 30% reduction in processing time and cutting accounting labor costs.<br>
+                        • Integrated multiple platforms (Studylink, PeopleSoft, Workday) to streamline payment and enrollment workflows.<br>
+                        • Collaborated cross-functionally with PMs, engineers, and solution architects to define product and system requirements for automation.<br>
+                        • Streamlined booking and charging systems, reducing errors in fee allocation and improving ledger accuracy.<br>
+                      </p>
+                  </div>
+              <!-- /li -->
+              <!-- ITEM 2: cột trái hàng dưới
+              <li class="service-item">
+                  <div class="service-icon-box">
+                      <img src="https://cdnjs.cloudflare.com/ajax/libs/simple-icons/9.7.0/linux.svg" alt="Embedded Systems" class="service-icon">
+                  </div>
+
+                  <div class="service-content-box">
+
+                      <h4 class="h4 service-item-title">Embedded Systems</h4>
+
+                      <p class="service-item-text">
+
+              I build real-time, AI-enabled embedded software that integrates cameras, sensors, and hardware for robotics and IoT.
+
+              I care about low latency, robust I/O, and maintainable code that runs well on constrained devices.
+
+                      </p>
+
+  </div>
+
+              </li>
+
+              <li class="service-item">
+
+                  <div class="service-icon-box">
+
+                      <img src="https://cdnjs.cloudflare.com/ajax/libs/simple-icons/9.7.0/microsoftacademic.svg" alt="Research" class="service-icon">
+
+                  </div>
+
+                  <div class="service-content-box">
+
+                      <h4 class="h4 service-item-title">Research & Development</h4>
+
+                      <p class="service-item-text">
+
+              I turn ideas into working prototypes fast—experiment, measure, iterate.
+
+              Interests include intelligent systems, robotics, and deep learning, with a focus on methods that transfer to production and are backed by clear ablations.
+
+                      </p>
+
+                  </div> --> 
+
+              </li>
+
           </ul>
+
         </section> 
 
-        <!-- testimonials -->
-        <section class="testimonials">
-          <h3 class="h3 testimonials-title">REFERENCES</h3>
-          <ul class="testimonials-list has-scrollbar">
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-                <figure class="testimonials-avatar-box">
-                  <img src="assets/images/2025.png" alt="Dat Nguyen" width="60" data-testimonials-avatar>
-                </figure>
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Dat Nguyen </h4>
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                  Dept of OperationOperation
-                  kent.nguyen-sc@airliquide.com
-                  </p>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </section>
 
-        <!-- testimonials modal -->
+
+
+
+        <!--
+
+          - testimonials
+
+        -->
+      <section class="testimonials">
+        <h3 class="h3 testimonials-title">REFERENCES</h3>
+        <ul class="testimonials-list has-scrollbar">
+          <li class="testimonials-item">
+            <div class="content-card" data-testimonials-item>
+              <figure class="testimonials-avatar-box">
+                <img src="assets/images/2025.png" alt="Dat Nguyen" width="60" data-testimonials-avatar>
+              </figure>
+              <h4 class="h4 testimonials-item-title" data-testimonials-title>Dat Nguyen </h4>
+              <div class="testimonials-text" data-testimonials-text>
+
+                <p>
+
+                Dept of Operation
+
+                kent.nguyen-sc@airliquide.com
+                </p>
+              </div>
+            </div>
+          </li>
+      
+
+          <!-- <li class="testimonials-item">
+            <div class="content-card" data-testimonials-item>
+              <figure class="testimonials-avatar-box">
+                <img src="" alt="Ph.D Khoa" width="60" data-testimonials-avatar>
+              </figure>
+              <h4 class="h4 testimonials-item-title" data-testimonials-title>Ph.D P. Dang Khoa</h4>
+              <div class="testimonials-text" data-testimonials-text>
+                <p>         
+                </p>
+              </div>
+            </div>
+          </li> -->
+        </ul>
+      </section>
+        <!--
+          - testimonials modal
+        -->
+          <!--
+          - testimonials modal
+        -->
         <div class="modal-container" data-modal-container>
           <div class="overlay" data-overlay></div>
           <section class="testimonials-modal">
@@ -216,187 +308,696 @@
             </div>
             <div class="modal-content">
               <h4 class="h3 modal-title" data-modal-title>Hung Nguyen</h4>
+              <!-- <time datetime="2021-06-14">14 June, 2021</time> -->
               <div data-modal-text>
-                <p>Richard was hired to create a corporate identity. We were very pleased with the work done.</p>
+                <p>
+                  Richard was hired to create a corporate identity. We were very pleased with the work done. 
+                </p>
               </div>
             </div>
           </section>
         </div>
       </article>
-
-      <!-- #RESUME -->
+      <!--
+        - #RESUME
+      -->
       <article class="resume" data-page="resume">
         <header>
+
           <h2 class="h2 article-title">Resume</h2>
+
         </header>
+
+
 
         <!-- EXPERIENCE -->
+
         <section class="timeline">
+
           <div class="title-wrapper">
+
             <div class="icon-box">
+
               <ion-icon name="book-outline"></ion-icon>
+
             </div>
+
             <h3 class="h3">Experience</h3>
+
           </div>
+
+
 
           <ol class="timeline-list">
+
+
+
+<li class="timeline-item">
+
+  <h4 class="h4">Simple MDG LTD</h4>
+
+  <h5 class="h5 timeline-item-title">SAP Business Analyst</h5>
+
+  <span>Jan 2025 — Present · Global </span>
+
+  <p class="timeline-text">
+
+    • Conducted AS-IS and TO-BE process mapping to align business workflows with SAP Best Practices, enhancing operational transparency.<br>
+
+    • Performed comprehensive Gap Analysis and authored Business Blueprints (BBP) to define strategic system enhancements and customizations.<br>
+
+    • Developed detailed Functional Specifications (FS) for ABAP developers, ensuring accurate technical translation of complex business logic.<br>
+
+    • Orchestrated User Acceptance Testing (UAT) and delivered end-user training programs to ensure seamless system adoption and high data integrity.<br>
+
+    • Provided post go-live functional support and hyper-care, troubleshooting critical issues and optimizing cross-module data flows.<br>
+
+  </p>
+
+</li>
+
+  
+
             <li class="timeline-item">
-              <h4 class="h4">Simple MDG LTD</h4>
-              <h5 class="h5 timeline-item-title">SAP Business Analyst</h5>
-              <span>Jan 2025 — Present · Global </span>
-              <p class="timeline-text">
-                • Conducted AS-IS and TO-BE process mapping to align business workflows with SAP Best Practices, enhancing operational transparency.<br>
-                • Performed comprehensive Gap Analysis and authored Business Blueprints (BBP) to define strategic system enhancements and customizations.<br>
-                • Developed detailed Functional Specifications (FS) for ABAP developers, ensuring accurate technical translation of complex business logic.<br>
-                • Orchestrated User Acceptance Testing (UAT) and delivered end-user training programs to ensure seamless system adoption and high data integrity.<br>
-                • Provided post go-live functional support and hyper-care, troubleshooting critical issues and optimizing cross-module data flows.<br>
-              </p>
-            </li>
-            <li class="timeline-item">
+
               <h4 class="h4">RMIT University</h4>
+
               <h5 class="h5 timeline-item-title">Business Analyst</h5>
+
               <span>Jan 2023 – Dec 2024 · Vietnam</span>
+
               <p class="timeline-text">
-                • Led go-live of a high-impact $8M enterprise finance system integrating Nelnet/Xetta...
+
+                • Led go-live of a high-impact $8M enterprise finance system integrating Nelnet/Xetta, achieving a 30% reduction in processing time and cutting accounting labor costs.<br>
+
+                • Integrated multiple platforms (Studylink, PeopleSoft, Workday) to streamline payment and enrollment workflows.<br>
+
+• Collaborated cross-functionally with PMs, engineers, and solution architects to define product and system requirements for automation. <br>
+
+                • Streamlined booking and charging systems, reducing errors in fee allocation and improving ledger accuracy. <br>
+
               </p>
+
             </li>
-            <!-- Rút gọn phần resume để tập trung vào Portfolio bị lỗi -->
+
+
+
+            <li class="timeline-item">
+
+              <h4 class="h4">TM HealthCare & Beauty</h4>
+
+              <h5 class="h5 timeline-item-title">Business Analyst</h5>
+
+              <span>Jul 2025 – Present · Huntington Beach, California, USA</span>
+
+              <p class="timeline-text">
+
+                • Analyzed business needs and translated them into functional requirements for Odoo system configuration.<br>
+
+                • Successfully streamlined the Odoo ERP system to align with client-specific operational goals.<br>
+
+                • Delivered end-to-end project management including scope definition, solution delivery, and timeline tracking. <br>
+
+• Provided hands-on support and consulting to clients throughout implementation lifecycle. <br>
+
+• Integrated Odoo modules to optimize sales, inventory, and finance operations. <br> 
+
+              </p>
+
+            </li>
+
+
+
+            <li class="timeline-item">
+
+              <h4 class="h4">FPT Software, JCS</h4>
+
+              <h5 class="h5 timeline-item-title">Business Analyst</h5>
+
+              <span>Jan 2022 – Dec 2022 · Danang, Vietnam</span>
+
+              <p class="timeline-text">
+
+                • Supported development of robotics IDE for logistics and F&B modules based on legacy product analysis. <br>
+
+• Gathered requirements to enhance robotics module capabilities (e.g., pallet handling). <br>
+
+• Partnered with PM, Scrum Master, and engineers to align automation features with client expectations. <br>
+
+• Designed UI/UX prototypes and documented processes in UML/BPMN for module enhancement. <br>
+
+              </p>
+
+            </li>
+
+
+
           </ol>
+
         </section>
 
-        <!-- TECHNICAL SKILLS -->
-        <section class="skill">
-          <h3 class="h3 skills-title">Technical Skills</h3>
-          <!-- Nội dung skills -->
-        </section>
-      </article>
 
-      <!-- #PORTFOLIO -->
-      <article class="portfolio" data-page="portfolio">
-        <header>
-          <h2 class="h2 article-title">Portfolio</h2>
-        </header>
 
-        <section class="projects">
+        <!-- EDUCATION -->
 
-          <!-- 🔴 SỬA Ở ĐÂY NÈ BRO: Đổi thành filter-item và data-filter-btn cho Desktop -->
-          <ul class="filter-list">
-            <li class="filter-item"><button class="active" data-filter-btn>All</button></li>
-            <li class="filter-item"><button data-filter-btn>Enterprise Resource Planning</button></li>
-            <li class="filter-item"><button data-filter-btn>Website Development</button></li>
-            <li class="filter-item"><button data-filter-btn>Business Strategy Consulting</button></li>
-          </ul>
+        <section class="timeline">
 
-          <!-- Filter dành cho Mobile thì giữ nguyên vì nó xài logic select/dropdown -->
-          <div class="filter-select-box">
-            <button class="filter-select" data-select>
-              <div class="select-value" data-select-value>Select category</div>
-              <div class="select-icon"><ion-icon name="chevron-down"></ion-icon></div>
-            </button>
-            <ul class="select-list">
-              <li class="select-item"><button data-select-item data-value="all">All</button></li>
-              <li class="select-item"><button data-select-item data-value="enterprise resource planning">Enterprise Resource Planning</button></li>
-              <li class="select-item"><button data-select-item data-value="website development">Website Development</button></li>
-              <li class="select-item"><button data-select-item data-value="business strategy consulting">Business Strategy Consulting</button></li>
-            </ul>
+          <div class="title-wrapper">
+
+            <div class="icon-box">
+
+              <ion-icon name="book-outline"></ion-icon>
+
+            </div>
+
+            <h3 class="h3">Education</h3>
+
           </div>
 
-          <ul class="project-list">
-            
-            <!-- Air Liquide -->
-            <!-- 🔴 SỬA Ở ĐÂY NÈ BRO: Thay data-category cho khớp với chữ trên button -->
-            <li class="project-item active" data-filter-item data-category="enterprise resource planning">
-              <a href="https://www.airliquide.com/" target="_blank">
-                <figure class="project-img">
-                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
-                  <img src="./assets/images/2025.png" alt="Air Liquide" loading="lazy">
-                </figure>
-                <h3 class="project-title">Air Liquide</h3>
-                <p class="project-category">Enterprise Resource Planning</p>
-              </a>
-            </li>
-            
-            <!-- ERP Setup -->
-            <!-- 🔴 SỬA Ở ĐÂY NÈ BRO: Sửa web/erp thành chữ đầy đủ -->
-            <li class="project-item active" data-filter-item data-category="enterprise resource planning">
-              <a href="#" target="_blank">
-                <figure class="project-img">
-                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
-                  <img src="./assets/images/2015.png" alt="Odoo Implementation" loading="lazy">
-                </figure>
-                <h3 class="project-title">TM Healthcare & Beauty</h3>
-                <p class="project-category">Enterprise Resource Planning</p>
-              </a>
+
+
+          <ol class="timeline-list">
+
+
+
+            <li class="timeline-item">
+
+              <h4 class="h4">Danang University Of Economic (DUE), Danang</h4>
+
+              <span>Sep 2021 – May 2020 · Danang, Vietnam</span>
+
+              <p class="timeline-text">
+
+                Bachelor of International Business - GPA: 3.2/4.0; Appreciation for Top students in International Business Falcuty (2020). <br>
+
+Specialization in Finance and International Payment method. <br>
+
+Co-founder of Google Developer Student Club - Chapter Danang University of Science and Technology (2019) <br>
+
+              </p>
+
             </li>
 
-            <!-- Ruby Angels Fashion -->
-            <li class="project-item active" data-filter-item data-category="website development">
-              <a href="https://www.rubyangels.com/" target="_blank">
-                <figure class="project-img">
-                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
-                  <img src="./assets/images/2025.png" alt="Ruby Angels" loading="lazy">
-                </figure>
-                <h3 class="project-title">Ruby Angels Fashion</h3>
-                <p class="project-category">Website Development</p>
-              </a>
+
+
+            <li class="timeline-item">
+
+              <h4 class="h4">Phan Chau Trinh High School, Danang, Vietnam</h4>
+
+              <span>Sep 2013 – May 2016 · Danang, Vietnam</span>
+
+              <p class="timeline-text">
+
+                Excellent student — GPA: 8.7/10.
+
+              </p>
+
             </li>
 
-            <!-- Victoria Dang - Realtor -->
-            <li class="project-item active" data-filter-item data-category="website development">
-              <a href="https://www.victoriadang.com/" target="_blank">
-                <figure class="project-img">
-                  <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
-                  <img src="./assets/images/2025.png" alt="Victoria Dang" loading="lazy">
-                </figure>
-                <h3 class="project-title">Victoria Dang</h3>
-                <p class="project-category">Website Development</p>
-              </a>
+
+
+          </ol>
+
+        </section>
+
+
+
+        <!-- TECHNICAL SKILLS -->
+
+        <section class="skill">
+
+          <h3 class="h3 skills-title">Technical Skills</h3>
+
+          <ul class="skills-list content-card">
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+
+                <h5 class="h5">Programming</h5>
+
+                <data value="90">Python · SQL</data>
+
+              </div>
+
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 60%;"></div></div>
+
             </li>
+
+
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+
+                <h5 class="h5">ERP system</h5>
+
+                <data value="85">Odoo · SAP · Oracle </data>
+
+              </div>
+
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 85%;"></div></div>
+
+            </li>
+
+
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+
+                <h5 class="h5">Tools</h5>
+
+                <data value="85">Figma · Draw.io · Github · Postman · Prompt Engineer · </data>
+
+              </div>
+
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 85%;"></div></div>
+
+            </li>
+
+
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+
+                <h5 class="h5">Management</h5>
+
+                <data value="80">Notion · Monday · Trello · Clickup · </data>
+
+              </div>
+
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 80%;"></div></div>
+
+            </li>
+
           </ul>
 
         </section>
-      </article>
 
-      <!-- #CONTACT -->
-      <article class="contact" data-page="contact">
-        <header>
-          <h2 class="h2 article-title">Contact</h2>
-        </header>
 
-        <section class="mapbox" data-mapbox>
-          <figure>
-            <iframe src="https://www.google.com/maps/embed?..." width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>        
-            <figcaption style="font-size:0.9rem; color:#667085; margin-top:8px;">
-              No. 117, No. 2 Rd, Tan Phong Ward, 7 District, Ho Chi Minh
-            </figcaption>
-          </figure>
-        </section>
 
-        <section class="contact-form">
-          <ul class="social-list">
-            <li class="social-item">
-              <a class="form-btn" href="mailto:datntt98@gmail.com" aria-label="Send email to Kent">
-              <ion-icon name="paper-plane"></ion-icon>
-              <span>Contact</span>
-              </a>
+        <!-- SOFT SKILLS -->
+
+        <section class="skill">
+
+          <h3 class="h3 skills-title">Soft Skills</h3>
+
+          <ul class="skills-list content-card">
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+
+                <h5 class="h5">Leadership</h5>
+
+                <data value="85">—</data>
+
+              </div>
+
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 85%;"></div></div>
+
             </li>
-            <!-- ...các mạng xã hội khác... -->
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+
+                <h5 class="h5">Critical / Design Thinking</h5>
+
+                <data value="85">—</data>
+
+              </div>
+
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 85%;"></div></div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+
+                <h5 class="h5">Teamwork & Communication</h5>
+
+                <data value="80">—</data>
+
+              </div>
+
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 70%;"></div></div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+
+                <h5 class="h5">Problem-solving & Presentation</h5>
+
+                <data value="80">—</data>
+
+              </div>
+
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width: 80%;"></div></div>
+
+            </li>
+
           </ul>
+
         </section>
 
+
+
       </article>
+
+
+
+
+
+<!--
+
+#PORTFOLIO
+
+-->
+
+
+
+<article class="portfolio" data-page="portfolio">
+
+
+
+  <header>
+
+    <h2 class="h2 article-title">Portfolio</h2>
+
+  </header>
+
+
+
+  <section class="projects">
+
+
+
+    <!-- Filter buttons -->
+
+    <ul class="filter-list">
+
+      <li class="select-item"><button data-select-item data-value="all">All</button></li>
+
+      <li class="select-item"><button data-select-item data-value="erp">Enterprise Resource Planning</button></li>
+
+      <li class="select-item"><button data-select-item data-value="web">Website Development</button></li>
+
+      <li class="select-item"><button data-select-item data-value="strategy">Business Strategy Consulting</button></li>
+
+    </ul>
+
+
+
+    <div class="filter-select-box">
+
+      <button class="filter-select" data-select>
+
+        <div class="select-value" data-select-value>Select category</div>
+
+        <div class="select-icon"><ion-icon name="chevron-down"></ion-icon></div>
+
+      </button>
+
+      <ul class="select-list">
+
+        <li class="select-item"><button data-select-item data-value="all">All</button></li>
+
+        <li class="select-item"><button data-select-item data-value="erp">Enterprise Resource Planning</button></li>
+
+        <li class="select-item"><button data-select-item data-value="web">Website Development</button></li>
+
+        <li class="select-item"><button data-select-item data-value="strategy">Business Strategy Consulting</button></li>
+
+      </ul>
 
     </div>
 
+
+
+    <ul class="project-list">
+
+  <!-- Air Liquide -->
+
+      <li class="project-item active" data-filter-item data-category="web">
+
+        <a href="https://www.airliquide.com/" target="_blank">
+
+          <figure class="project-img">
+
+            <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+
+            <img src="./assets/images/2025.png" alt="Air Liquide" loading="lazy">
+
+          </figure>
+
+          <h3 class="project-title">Air Liquide</h3>
+
+          <p class="project-category">Enterprises Resources Planning System</p>
+
+        </a>
+
+      </li>
+
+
+      <!-- ERP Setup -->
+
+      <li class="project-item active" data-filter-item data-category="erp">
+
+        <a href="#" target="_blank">
+
+          <figure class="project-img">
+
+            <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+
+            <img src="./assets/images/2015.png" alt="Odoo Implementation Enterprises Resources Planning System" loading="lazy">
+
+          </figure>
+
+          <h3 class="project-title">TM Healthcare & Beauty</h3>
+
+          <p class="project-category">Enterprises Resources Planning System</p>
+
+        </a>
+
+      </li>
+
+
+
+      <li class="project-item active" data-filter-item data-category="web">
+
+        <a href="https://www.rubyangels.com/" target="_blank">
+
+          <figure class="project-img">
+
+            <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+
+            <img src="./assets/images/2025.png" alt="Ruby Angels" loading="lazy">
+
+          </figure>
+
+          <h3 class="project-title">Ruby Angels Fashion</h3>
+
+          <p class="project-category">Website Development</p>
+
+        </a>
+
+      </li>
+
+
+
+      <!-- Victoria Dang - Realtor -->
+
+      <li class="project-item active" data-filter-item data-category="web">
+
+        <a href="https://www.victoriadang.com/" target="_blank">
+
+          <figure class="project-img">
+
+            <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+
+            <img src="./assets/images/2025.png" alt="Victoria Dang" loading="lazy">
+
+          </figure>
+
+          <h3 class="project-title">Victoria Dang</h3>
+
+          <p class="project-category">Website Development</p>
+
+        </a>
+
+      </li>
+
+
+
+
+    </ul>
+
+
+
+  </section>
+
+
+
+</article>
+
+
+
+
+
+      <!--
+
+        - #CONTACT
+
+      -->
+
+
+
+      <article class="contact" data-page="contact">
+
+
+
+        <header>
+
+          <h2 class="h2 article-title">Contact</h2>
+
+        </header>
+
+
+
+        <!-- Map: pinned to No. 117, Rd No. 2, Tan Phong District, Ho Chi Minh City -->
+
+        <section class="mapbox" data-mapbox>
+
+          <figure>
+
+            <!-- 22.992677, 120.22829 -->
+
+<iframe 
+
+src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15680.26380761115!2d106.69499781122248!3d10.729396713314701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f96ae6b7c09%3A0x3440c5e67d8b63c5!2sT%C3%A2n%20Phong%2C%20District%207%2C%20Ho%20Chi%20Minh%20City%2C%20Vietnam!5e0!3m2!1sen!2s!4v1758382514654!5m2!1sen!2s" 
+
+width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" 
+
+referrerpolicy="no-referrer-when-downgrade"></iframe>        
+
+            <figcaption style="font-size:0.9rem; color:#667085; margin-top:8px;">
+
+              No. 117, No. 2 Rd, Tan Phong Ward, 7 District, Ho Chi Minh — Coordinates: 22.992677, 120.22829
+
+            </figcaption>
+
+          </figure>
+
+        </section>
+
+
+
+        <!-- Replace Contact Form with a single email button -->
+
+        <section class="contact-form">
+
+          
+
+          <ul class="social-list">
+
+            <li class="social-item">
+
+              <a class="form-btn" href="mailto:datntt98@gmail.com" aria-label="Send email to Kent">
+
+              <ion-icon name="paper-plane"></ion-icon>
+
+              <span>Contact</span>
+
+              </a>
+
+            </li>
+
+            <li class="social-item">
+
+              <a href="https://www.facebook.com/nttdat2909/" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
+
+                <ion-icon name="logo-facebook"></ion-icon>
+
+                
+
+              </a>
+
+            </li>
+
+            <li class="social-item">
+
+              <a href="https://www.instagram.com/nttdat2909/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+
+                <ion-icon name="logo-instagram"></ion-icon>
+
+                
+
+              </a>
+
+            </li>
+
+          </ul>
+
+        </section>
+
+
+
+      </article>
+
+
+
+
+
+    </div>
+
+
+
   </main>
 
+
+
+
+
+
+
+
+
+
+
   <footer>
+
     <p>&copy; 2025 Nguyen Thanh Dat</p>
+
   </footer>
-  
+
+  <!--
+
+    - custom js link
+
+  -->
+
   <script src="./assets/js/script.js"></script>
+
+
+
+  <!--
+
+    - ionicon link
+
+  -->
+
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
 </body>
+
+
 
 </html>
