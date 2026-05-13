@@ -1,35 +1,38 @@
-🌿 My Personal Space (Kent's Resume)
-Hello there! Thank you for stopping by. This is a small project I built to learn more about web development and to share a little bit about my professional journey.
+# 🌿 Welcome to My Personal Space
 
-👤 Web Owner
-Kent Ng (Nguyen Thanh Dat)
-I am a Business Analyst who enjoys exploring how technical systems work. I’m a bit shy, but I truly love discovering new tools and finding ways to make daily life a little easier through technology.
+Hi there. I'm Kent, and this is a small corner of the internet where I’m practicing how to build things. This repository hosts my personal resume website—a project born from a simple desire to learn and grow.
 
-🛠️ Tech & Languages Used
-This website was built as a learning experiment using:
+---
 
-HTML5 & CSS3 – For the structure and the look of the site.
+### 👤 About Me
+I am a Business Analyst who finds great joy in the quiet process of learning. I’ve always been a bit reserved, but technology gives me a way to connect with the world and solve problems. I believe that even small tools, when built with care, can make our daily lives a little bit brighter.
 
-JavaScript – To add some simple interactive elements.
+*   **Current Focus:** Mastering the bridge between business logic and technical execution.
+*   **Philosophy:** Technology should be approachable, helpful, and kind.
 
-GitHub Pages – For hosting and learning about version control.
+---
 
-Design Tools – I used Figma to help visualize the layout before building.
+### 🛠️ The Toolkit
+I built this site to get my hands dirty with the basics of the web. Here is what I used to bring it to life:
 
-In my daily life and work, I also enjoy working with Python and SQL to better understand data.
+*   **Frontend:** HTML5 & CSS3 (Learning the foundations of layout and design).
+*   **Logic:** Basic JavaScript (Adding small touches of interactivity).
+*   **Deployment:** GitHub Pages (Learning how to share my work with others).
+*   **Analytical Interests:** I also spend time with **Python** and **SQL** to understand the stories that data can tell.
 
-🌱 Purpose
-The main goal of this repository is:
+---
 
-Learning: To practice coding and understand how to build a digital presence from scratch.
+### 🌱 Why This Project?
+The purpose of this website is twofold:
+1.  **A Learning Sandbox:** To move beyond theory and actually apply code to a real-world page.
+2.  **A Simple Introduction:** To provide a gentle way for friends and colleagues to learn about my professional path in Business Analysis and AI.
 
-Introduction: To provide a warm welcome to anyone interested in my work with ERP systems, AI, and business analysis.
+---
 
-Application: I believe technology is most beautiful when it is applied to solve real, everyday challenges. This site is my first step in documenting that process.
+### 📬 Let's Connect
+I am still very much a student of the craft. If you find any mistakes or have suggestions on how I can improve, I would truly appreciate your guidance.
 
-📬 A Small Note
-I am still learning every day, so this site is a work in progress. If you see something that could be improved, I would be very grateful for your kind guidance.
+*   **View the Site:** [datnguyen998.github.io/Kent_Ng_Resume/](https://datnguyen998.github.io/Kent_Ng_Resume/)
+*   **GitHub:** [@datnguyen998](https://github.com/datnguyen998)
 
-"Learning is a quiet journey, and I'm happy to take one step at a time."
-
-Created with care by Kent Ng.
+*"One small step at a time, with a curious heart."*
