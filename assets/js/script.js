@@ -12,7 +12,9 @@ const sidebar = document.querySelector("[data-sidebar]");
 const sidebarBtn = document.querySelector("[data-sidebar-btn]");
 
 // sidebar toggle functionality for mobile
-sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
+if (sidebarBtn) {
+  sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
+}
 
 
 
@@ -50,29 +52,98 @@ for (let i = 0; i < testimonialsItem.length; i++) {
 }
 
 // add click event to modal close button
-modalCloseBtn.addEventListener("click", testimonialsModalFunc);
-overlay.addEventListener("click", testimonialsModalFunc);
+if (modalCloseBtn) modalCloseBtn.addEventListener("click", testimonialsModalFunc);
+if (overlay) overlay.addEventListener("click", testimonialsModalFunc);
 
 
+
+// -----------------------------------------------------------------------------
+// PROJECT DETAIL MODAL (reuses the shared modal styles)
+// -----------------------------------------------------------------------------
+const projectCards = document.querySelectorAll("[data-project-item]");
+const projectModalContainer = document.querySelector("[data-project-modal-container]");
+const projectModalCloseBtn = document.querySelector("[data-project-modal-close-btn]");
+const projectOverlay = document.querySelector("[data-project-overlay]");
+
+const projectModalImg = document.querySelector("[data-project-modal-img]");
+const projectModalTitle = document.querySelector("[data-project-modal-title]");
+const projectModalCategory = document.querySelector("[data-project-modal-category]");
+const projectModalText = document.querySelector("[data-project-modal-text]");
+const projectModalTech = document.querySelector("[data-project-modal-tech]");
+const projectModalLink = document.querySelector("[data-project-modal-link]");
+
+const projectModalFunc = function () {
+  if (!projectModalContainer) return;
+  projectModalContainer.classList.toggle("active");
+  projectOverlay.classList.toggle("active");
+}
+
+for (let i = 0; i < projectCards.length; i++) {
+  const trigger = projectCards[i].querySelector("[data-project-open]") || projectCards[i];
+
+  trigger.addEventListener("click", function (event) {
+    // don't follow the card link – open the detail modal instead
+    event.preventDefault();
+
+    const data = projectCards[i].dataset;
+    const img = projectCards[i].querySelector("img");
+
+    if (img && projectModalImg) {
+      projectModalImg.src = img.src;
+      projectModalImg.alt = img.alt;
+    }
+    if (projectModalTitle) projectModalTitle.textContent = data.projectTitle || "";
+    if (projectModalCategory) projectModalCategory.textContent = data.projectCategory || "";
+    if (projectModalText) projectModalText.textContent = data.projectDesc || "";
+
+    // tech chips
+    if (projectModalTech) {
+      projectModalTech.innerHTML = "";
+      (data.projectTech || "").split(",").forEach(function (t) {
+        const label = t.trim();
+        if (!label) return;
+        const chip = document.createElement("span");
+        chip.className = "project-tech-chip";
+        chip.textContent = label;
+        projectModalTech.appendChild(chip);
+      });
+    }
+
+    // outbound link (hidden when there's nothing meaningful to link to)
+    if (projectModalLink) {
+      const url = data.projectLink;
+      if (url && url !== "#") {
+        projectModalLink.href = url;
+        projectModalLink.style.display = "";
+      } else {
+        projectModalLink.style.display = "none";
+      }
+    }
+
+    projectModalFunc();
+  });
+}
+
+if (projectModalCloseBtn) projectModalCloseBtn.addEventListener("click", projectModalFunc);
+if (projectOverlay) projectOverlay.addEventListener("click", projectModalFunc);
+
+
+
+// -----------------------------------------------------------------------------
+// PORTFOLIO FILTER
+// -----------------------------------------------------------------------------
 
 // custom select variables
 const select = document.querySelector("[data-select]");
 const selectItems = document.querySelectorAll("[data-select-item]");
-const selectValue = document.querySelector("[data-selecct-value]");
-const filterBtn = document.querySelectorAll("[data-filter-btn]");
+const selectValue = document.querySelector("[data-select-value]");
 
-select.addEventListener("click", function () { elementToggleFunc(this); });
+// the tags shown on large screens (top row) and the dropdown items
+// are all [data-select-item]; one handler drives both UIs.
+const filterTags = document.querySelectorAll("[data-select-item]");
 
-// add event in all select items
-for (let i = 0; i < selectItems.length; i++) {
-  selectItems[i].addEventListener("click", function () {
-
-    let selectedValue = this.innerText.toLowerCase();
-    selectValue.innerText = this.innerText;
-    elementToggleFunc(select);
-    filterFunc(selectedValue);
-
-  });
+if (select) {
+  select.addEventListener("click", function () { elementToggleFunc(this); });
 }
 
 // filter variables
@@ -94,66 +165,103 @@ const filterFunc = function (selectedValue) {
 
 }
 
-// add event in all filter button items for large screen
-let lastClickedBtn = filterBtn[0];
+// highlight the currently selected tag across every filter UI
+const setActiveTag = function (value) {
+  for (let i = 0; i < filterTags.length; i++) {
+    filterTags[i].classList.toggle("active", filterTags[i].dataset.value === value);
+  }
+}
 
-for (let i = 0; i < filterBtn.length; i++) {
+// add event to all filter items (top tags + dropdown)
+for (let i = 0; i < selectItems.length; i++) {
+  selectItems[i].addEventListener("click", function () {
 
-  filterBtn[i].addEventListener("click", function () {
+    // use the explicit data-value key, NOT the visible label
+    const selectedValue = this.dataset.value;
 
-    let selectedValue = this.innerText.toLowerCase();
-    selectValue.innerText = this.innerText;
+    if (selectValue) selectValue.innerText = this.innerText;
+    if (select && select.classList.contains("active")) elementToggleFunc(select);
+
     filterFunc(selectedValue);
-
-    lastClickedBtn.classList.remove("active");
-    this.classList.add("active");
-    lastClickedBtn = this;
-
-  });
-
-}
-
-
-
-// contact form variables
-const form = document.querySelector("[data-form]");
-const formInputs = document.querySelectorAll("[data-form-input]");
-const formBtn = document.querySelector("[data-form-btn]");
-
-// add event to all form input field
-for (let i = 0; i < formInputs.length; i++) {
-  formInputs[i].addEventListener("input", function () {
-
-    // check form validation
-    if (form.checkValidity()) {
-      formBtn.removeAttribute("disabled");
-    } else {
-      formBtn.setAttribute("disabled", "");
-    }
+    setActiveTag(selectedValue);
 
   });
 }
 
 
 
-// page navigation variables
+// -----------------------------------------------------------------------------
+// PAGE NAVIGATION
+// -----------------------------------------------------------------------------
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
 const pages = document.querySelectorAll("[data-page]");
 
-// add event to all nav link
 for (let i = 0; i < navigationLinks.length; i++) {
   navigationLinks[i].addEventListener("click", function () {
 
-    for (let i = 0; i < pages.length; i++) {
-      if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
-        pages[i].classList.add("active");
-        navigationLinks[i].classList.add("active");
-        window.scrollTo(0, 0);
-      } else {
-        pages[i].classList.remove("active");
-        navigationLinks[i].classList.remove("active");
-      }
+    const target = this.innerHTML.toLowerCase();
+
+    // toggle pages
+    for (let j = 0; j < pages.length; j++) {
+      pages[j].classList.toggle("active", pages[j].dataset.page === target);
     }
 
+    // toggle nav links independently of page order
+    for (let j = 0; j < navigationLinks.length; j++) {
+      navigationLinks[j].classList.toggle("active", navigationLinks[j] === this);
+    }
+
+    window.scrollTo(0, 0);
+
+    // re-run reveal / skill animations for the freshly shown page
+    revealOnView();
+
   });
+}
+
+
+
+// -----------------------------------------------------------------------------
+// SCROLL REVEAL + SKILL BAR ANIMATIONS
+// -----------------------------------------------------------------------------
+const revealItems = document.querySelectorAll(".reveal");
+const skillFills = document.querySelectorAll(".skill-progress-fill");
+
+// remember each fill's target width, then reset to 0 so it can animate in
+skillFills.forEach(function (fill) {
+  fill.dataset.targetWidth = fill.style.width || "0%";
+  fill.style.width = "0%";
+});
+
+const animateSkill = function (fill) {
+  fill.style.width = fill.dataset.targetWidth || "0%";
+}
+
+let observer = null;
+if ("IntersectionObserver" in window) {
+  observer = new IntersectionObserver(function (entries, obs) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      el.classList.add("reveal--visible");
+      if (el.classList.contains("skill-progress-fill")) animateSkill(el);
+      obs.unobserve(el);
+    });
+  }, { threshold: 0.15 });
+
+  revealItems.forEach(function (el) { observer.observe(el); });
+  skillFills.forEach(function (el) { observer.observe(el); });
+}
+
+// Pages are shown/hidden via tabs, so elements inside a hidden tab never
+// intersect. When a tab opens, reveal anything already in view immediately.
+function revealOnView() {
+  const trigger = function (el) {
+    if (el.offsetParent === null) return; // still hidden
+    el.classList.add("reveal--visible");
+    if (el.classList.contains("skill-progress-fill")) animateSkill(el);
+    if (observer) observer.unobserve(el);
+  };
+  revealItems.forEach(trigger);
+  skillFills.forEach(trigger);
 }
