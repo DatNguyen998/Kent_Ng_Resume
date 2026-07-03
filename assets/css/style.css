@@ -1999,3 +1999,98 @@ body {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     border-radius: 2px;
 } */
+
+
+
+/* ==========================================================================
+   SCROLL REVEAL ANIMATIONS
+   ========================================================================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform;
+}
+
+.reveal.reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* project cards keep their filter scale animation; only fade them in */
+.project-item.reveal { transform: translateY(24px); }
+.project-item.reveal.reveal--visible { transform: translateY(0); }
+
+/* animated skill bars fill from 0 to their inline width */
+.skill-progress-fill {
+  transition: width 1.1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.reveal--visible,
+  .skill-progress-fill {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
+
+/* ==========================================================================
+   PROJECT DETAIL MODAL
+   ========================================================================== */
+
+.project-modal-category {
+  color: var(--orange-yellow-crayola);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-500);
+  margin-bottom: 12px;
+}
+
+.project-modal-text {
+  color: var(--light-gray);
+  font-size: var(--fs-6);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.project-tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.project-tech-chip {
+  background: var(--border-gradient-onyx, var(--jet));
+  background: var(--jet);
+  color: var(--light-gray-70);
+  font-size: var(--fs-8);
+  padding: 5px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--jet);
+}
+
+.project-modal-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--eerie-black-1);
+  background: var(--orange-yellow-crayola);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-500);
+  padding: 9px 18px;
+  border-radius: 10px;
+  transition: var(--transition-1);
+}
+
+.project-modal-link:hover { filter: brightness(1.08); }
+
+.project-modal-link ion-icon { font-size: 16px; }
+
+/* make it clear the whole card is clickable (it opens the modal) */
+.project-item > a { cursor: pointer; }
