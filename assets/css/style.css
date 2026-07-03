@@ -2002,6 +2002,11 @@ body {
 
 
 
+/* prevent the page from scrolling behind an open modal */
+body.modal-open { overflow: hidden; }
+
+
+
 /* ==========================================================================
    SCROLL REVEAL ANIMATIONS
    ========================================================================== */

@@ -29,10 +29,17 @@ const modalImg = document.querySelector("[data-modal-img]");
 const modalTitle = document.querySelector("[data-modal-title]");
 const modalText = document.querySelector("[data-modal-text]");
 
+// lock/unlock background scroll while any modal is open
+const setBodyScrollLock = function () {
+  const anyOpen = document.querySelector(".modal-container.active");
+  document.body.classList.toggle("modal-open", !!anyOpen);
+}
+
 // modal toggle function
 const testimonialsModalFunc = function () {
   modalContainer.classList.toggle("active");
   overlay.classList.toggle("active");
+  setBodyScrollLock();
 }
 
 // add click event to all modal items
@@ -76,6 +83,7 @@ const projectModalFunc = function () {
   if (!projectModalContainer) return;
   projectModalContainer.classList.toggle("active");
   projectOverlay.classList.toggle("active");
+  setBodyScrollLock();
 }
 
 for (let i = 0; i < projectCards.length; i++) {
@@ -126,6 +134,13 @@ for (let i = 0; i < projectCards.length; i++) {
 
 if (projectModalCloseBtn) projectModalCloseBtn.addEventListener("click", projectModalFunc);
 if (projectOverlay) projectOverlay.addEventListener("click", projectModalFunc);
+
+// close whichever modal is open when Escape is pressed
+document.addEventListener("keydown", function (event) {
+  if (event.key !== "Escape") return;
+  if (modalContainer && modalContainer.classList.contains("active")) testimonialsModalFunc();
+  if (projectModalContainer && projectModalContainer.classList.contains("active")) projectModalFunc();
+});
 
 
 
