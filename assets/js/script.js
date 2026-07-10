@@ -7,6 +7,24 @@ const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
 
 
 
+// -----------------------------------------------------------------------------
+// CONTACT OBFUSCATION
+// Email/phone are stored base64-encoded in [data-c] so they are NOT present as
+// plaintext in the HTML source (defeats spam-bot scrapers). We assemble the
+// real mailto:/tel: link here, at runtime, only in the visitor's browser.
+// -----------------------------------------------------------------------------
+document.querySelectorAll("[data-c]").forEach(function (a) {
+  let href;
+  try { href = atob(a.dataset.c); } catch (e) { return; }
+  a.setAttribute("href", href);
+  if (!a.hasAttribute("data-keep-text")) {
+    a.textContent = a.dataset.display || href.replace(/^(mailto:|tel:)/, "");
+  }
+  a.removeAttribute("data-c");
+});
+
+
+
 // sidebar variables
 const sidebar = document.querySelector("[data-sidebar]");
 const sidebarBtn = document.querySelector("[data-sidebar-btn]");
@@ -18,66 +36,84 @@ if (sidebarBtn) {
 
 
 
-// testimonials variables
-const testimonialsItem = document.querySelectorAll("[data-testimonials-item]");
+// -----------------------------------------------------------------------------
+// SHARED MODAL — one modal drives both references and project details
+// -----------------------------------------------------------------------------
 const modalContainer = document.querySelector("[data-modal-container]");
-const modalCloseBtn = document.querySelector("[data-modal-close-btn]");
 const overlay = document.querySelector("[data-overlay]");
+const modalCloseBtn = document.querySelector("[data-modal-close-btn]");
 
-// modal variable
 const modalImg = document.querySelector("[data-modal-img]");
 const modalTitle = document.querySelector("[data-modal-title]");
+const modalCategory = document.querySelector("[data-modal-category]");
 const modalText = document.querySelector("[data-modal-text]");
+const modalTech = document.querySelector("[data-modal-tech]");
+const modalLink = document.querySelector("[data-modal-link]");
 
-// modal toggle function
-const testimonialsModalFunc = function () {
-  modalContainer.classList.toggle("active");
-  overlay.classList.toggle("active");
-}
+const show = function (el, visible) { if (el) el.style.display = visible ? "" : "none"; };
 
-// add click event to all modal items
+const closeModal = function () {
+  if (!modalContainer) return;
+  modalContainer.classList.remove("active");
+  overlay.classList.remove("active");
+  document.body.classList.remove("modal-open");
+};
+
+// cfg: { img, imgAlt, title, category, html, tech: [], link }
+const openModal = function (cfg) {
+  if (!modalContainer) return;
+
+  if (modalImg) { modalImg.src = cfg.img || ""; modalImg.alt = cfg.imgAlt || ""; }
+  if (modalTitle) modalTitle.textContent = cfg.title || "";
+
+  if (modalCategory) { modalCategory.textContent = cfg.category || ""; show(modalCategory, !!cfg.category); }
+  if (modalText) modalText.innerHTML = cfg.html || "";
+
+  if (modalTech) {
+    modalTech.innerHTML = "";
+    const tech = (cfg.tech || []).map(function (t) { return t.trim(); }).filter(Boolean);
+    tech.forEach(function (label) {
+      const chip = document.createElement("span");
+      chip.className = "project-tech-chip";
+      chip.textContent = label;
+      modalTech.appendChild(chip);
+    });
+    show(modalTech, tech.length > 0);
+  }
+
+  if (modalLink) {
+    const hasLink = cfg.link && cfg.link !== "#";
+    if (hasLink) modalLink.href = cfg.link;
+    show(modalLink, hasLink);
+  }
+
+  modalContainer.classList.add("active");
+  overlay.classList.add("active");
+  document.body.classList.add("modal-open");
+};
+
+if (modalCloseBtn) modalCloseBtn.addEventListener("click", closeModal);
+if (overlay) overlay.addEventListener("click", closeModal);
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") closeModal();
+});
+
+// references / testimonials cards
+const testimonialsItem = document.querySelectorAll("[data-testimonials-item]");
 for (let i = 0; i < testimonialsItem.length; i++) {
-
   testimonialsItem[i].addEventListener("click", function () {
-
-    modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
-    modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
-    modalTitle.innerHTML = this.querySelector("[data-testimonials-title]").innerHTML;
-    modalText.innerHTML = this.querySelector("[data-testimonials-text]").innerHTML;
-
-    testimonialsModalFunc();
-
+    const avatar = this.querySelector("[data-testimonials-avatar]");
+    openModal({
+      img: avatar ? avatar.src : "",
+      imgAlt: avatar ? avatar.alt : "",
+      title: this.querySelector("[data-testimonials-title]").textContent,
+      html: this.querySelector("[data-testimonials-text]").innerHTML,
+    });
   });
-
 }
 
-// add click event to modal close button
-if (modalCloseBtn) modalCloseBtn.addEventListener("click", testimonialsModalFunc);
-if (overlay) overlay.addEventListener("click", testimonialsModalFunc);
-
-
-
-// -----------------------------------------------------------------------------
-// PROJECT DETAIL MODAL (reuses the shared modal styles)
-// -----------------------------------------------------------------------------
+// portfolio project cards
 const projectCards = document.querySelectorAll("[data-project-item]");
-const projectModalContainer = document.querySelector("[data-project-modal-container]");
-const projectModalCloseBtn = document.querySelector("[data-project-modal-close-btn]");
-const projectOverlay = document.querySelector("[data-project-overlay]");
-
-const projectModalImg = document.querySelector("[data-project-modal-img]");
-const projectModalTitle = document.querySelector("[data-project-modal-title]");
-const projectModalCategory = document.querySelector("[data-project-modal-category]");
-const projectModalText = document.querySelector("[data-project-modal-text]");
-const projectModalTech = document.querySelector("[data-project-modal-tech]");
-const projectModalLink = document.querySelector("[data-project-modal-link]");
-
-const projectModalFunc = function () {
-  if (!projectModalContainer) return;
-  projectModalContainer.classList.toggle("active");
-  projectOverlay.classList.toggle("active");
-}
-
 for (let i = 0; i < projectCards.length; i++) {
   const trigger = projectCards[i].querySelector("[data-project-open]") || projectCards[i];
 
@@ -85,47 +121,19 @@ for (let i = 0; i < projectCards.length; i++) {
     // don't follow the card link – open the detail modal instead
     event.preventDefault();
 
-    const data = projectCards[i].dataset;
+    const d = projectCards[i].dataset;
     const img = projectCards[i].querySelector("img");
-
-    if (img && projectModalImg) {
-      projectModalImg.src = img.src;
-      projectModalImg.alt = img.alt;
-    }
-    if (projectModalTitle) projectModalTitle.textContent = data.projectTitle || "";
-    if (projectModalCategory) projectModalCategory.textContent = data.projectCategory || "";
-    if (projectModalText) projectModalText.textContent = data.projectDesc || "";
-
-    // tech chips
-    if (projectModalTech) {
-      projectModalTech.innerHTML = "";
-      (data.projectTech || "").split(",").forEach(function (t) {
-        const label = t.trim();
-        if (!label) return;
-        const chip = document.createElement("span");
-        chip.className = "project-tech-chip";
-        chip.textContent = label;
-        projectModalTech.appendChild(chip);
-      });
-    }
-
-    // outbound link (hidden when there's nothing meaningful to link to)
-    if (projectModalLink) {
-      const url = data.projectLink;
-      if (url && url !== "#") {
-        projectModalLink.href = url;
-        projectModalLink.style.display = "";
-      } else {
-        projectModalLink.style.display = "none";
-      }
-    }
-
-    projectModalFunc();
+    openModal({
+      img: img ? img.src : "",
+      imgAlt: img ? img.alt : "",
+      title: d.projectTitle,
+      category: d.projectCategory,
+      html: d.projectDesc,
+      tech: (d.projectTech || "").split(","),
+      link: d.projectLink,
+    });
   });
 }
-
-if (projectModalCloseBtn) projectModalCloseBtn.addEventListener("click", projectModalFunc);
-if (projectOverlay) projectOverlay.addEventListener("click", projectModalFunc);
 
 
 
@@ -251,6 +259,10 @@ if ("IntersectionObserver" in window) {
 
   revealItems.forEach(function (el) { observer.observe(el); });
   skillFills.forEach(function (el) { observer.observe(el); });
+} else {
+  // no IntersectionObserver: never leave content hidden — show it all at once
+  revealItems.forEach(function (el) { el.classList.add("reveal--visible"); });
+  skillFills.forEach(animateSkill);
 }
 
 // Pages are shown/hidden via tabs, so elements inside a hidden tab never

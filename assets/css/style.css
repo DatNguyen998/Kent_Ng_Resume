@@ -2002,6 +2002,11 @@ body {
 
 
 
+/* prevent the page from scrolling behind an open modal */
+body.modal-open { overflow: hidden; }
+
+
+
 /* ==========================================================================
    SCROLL REVEAL ANIMATIONS
    ========================================================================== */
@@ -2066,7 +2071,6 @@ body {
 }
 
 .project-tech-chip {
-  background: var(--border-gradient-onyx, var(--jet));
   background: var(--jet);
   color: var(--light-gray-70);
   font-size: var(--fs-8);
