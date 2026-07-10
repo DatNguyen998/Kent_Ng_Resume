@@ -7,6 +7,24 @@ const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
 
 
 
+// -----------------------------------------------------------------------------
+// CONTACT OBFUSCATION
+// Email/phone are stored base64-encoded in [data-c] so they are NOT present as
+// plaintext in the HTML source (defeats spam-bot scrapers). We assemble the
+// real mailto:/tel: link here, at runtime, only in the visitor's browser.
+// -----------------------------------------------------------------------------
+document.querySelectorAll("[data-c]").forEach(function (a) {
+  let href;
+  try { href = atob(a.dataset.c); } catch (e) { return; }
+  a.setAttribute("href", href);
+  if (!a.hasAttribute("data-keep-text")) {
+    a.textContent = a.dataset.display || href.replace(/^(mailto:|tel:)/, "");
+  }
+  a.removeAttribute("data-c");
+});
+
+
+
 // sidebar variables
 const sidebar = document.querySelector("[data-sidebar]");
 const sidebarBtn = document.querySelector("[data-sidebar-btn]");

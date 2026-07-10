@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Security: limit where scripts/styles/frames may load from, and don't leak full URLs as referrer -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' https://unpkg.com; connect-src 'self' https://unpkg.com; frame-src https://www.google.com; base-uri 'self'; form-action 'self' mailto:; object-src 'none'"
+    />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
     <title>Nguyen Thanh Dat (Kent) — Business Analyst</title>
     <!--
     - favicon
@@ -12,7 +18,7 @@
     <!--
     - custom css link
   -->
-    <link rel="stylesheet" href="./assets/css/style.css?v=20260708" />
+    <link rel="stylesheet" href="./assets/css/style.css?v=20260710" />
     <!--
     - google font link
   -->
@@ -53,7 +59,7 @@
               </div>
               <div class="contact-info">
                 <p class="contact-title">Email</p>
-                <a href="mailto:datntt98@gmail.com" class="contact-link">datntt98@gmail.com</a>
+                <a href="#" class="contact-link" data-c="bWFpbHRvOmRhdG50dDk4QGdtYWlsLmNvbQ==">Show email</a>
               </div>
             </li>
             <li class="contact-item">
@@ -62,7 +68,7 @@
               </div>
               <div class="contact-info">
                 <p class="contact-title">Phone</p>
-                <a href="tel:+84 702727507" class="contact-link">(+84) 70-2727-507</a>
+                <a href="#" class="contact-link" data-c="dGVsOis4NDcwMjcyNzUwNw==" data-display="(+84) 70-2727-507">Show phone</a>
               </div>
             </li>
             <li class="contact-item">
@@ -71,7 +77,7 @@
               </div>
               <div class="contact-info">
                 <p class="contact-title">Birthday</p>
-                <time datetime="1998-09-29">September, 1998</time>
+                <time datetime="1998-09">September 1998</time>
               </div>
             </li>
             <li class="contact-item">
@@ -87,23 +93,23 @@
           <div class="separator"></div>
           <ul class="social-list">
             <li class="social-item">
-              <a href="https://github.com/datnguyen998" class="social-link" target="_blank">
+              <a href="https://github.com/datnguyen998" class="social-link" target="_blank" rel="noopener noreferrer">
                 <ion-icon name="logo-github"></ion-icon>
               </a>
             </li>
             <li class="social-item">
-              <a href="https://www.linkedin.com/in/datnguyen98" class="social-link" target="_blank">
+              <a href="https://www.linkedin.com/in/datnguyen98" class="social-link" target="_blank" rel="noopener noreferrer">
                 <ion-icon name="logo-linkedin"></ion-icon>
               </a>
             </li>
             <li class="social-item">
-              <a href="https://scholar.google.com/citations?user=r3tfrQcAAAAJ&hl" class="social-link" target="_blank">
+              <a href="https://scholar.google.com/citations?user=r3tfrQcAAAAJ&hl" class="social-link" target="_blank" rel="noopener noreferrer">
                 <ion-icon name="school-outline"></ion-icon>
                 <!-- dùng icon thay thế -->
               </a>
             </li>
             <li class="social-item">
-              <a href="https://www.instagram.com/nttd2909/" class="social-link" target="_blank">
+              <a href="https://www.instagram.com/nttd2909/" class="social-link" target="_blank" rel="noopener noreferrer">
                 <ion-icon name="logo-instagram"></ion-icon>
               </a>
             </li>
@@ -162,7 +168,7 @@
               <a
                 href="https://due.udn.vn/"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
                 style="display: inline; color: var(--orange-yellow-crayola)"
                 >Danang University of Economic</a
               >.
@@ -171,7 +177,11 @@
               Beyond my expertise, I see AI as both tool and craft—something that can connect with design, creativity,
               and everyday life. That mindset keeps me building, experimenting, and sharing. I’m always open to
               collaborations, research ideas, and meaningful products. Feel free to reach out, explore my
-              <a href="https://github.com/DatNguyen998" style="display: inline; color: var(--orange-yellow-crayola)"
+              <a
+                href="https://github.com/DatNguyen998"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="display: inline; color: var(--orange-yellow-crayola)"
                 >GitHub</a
               >, or download
               <a
@@ -273,7 +283,7 @@
                   </figure>
                   <h4 class="h4 testimonials-item-title" data-testimonials-title>Dat Nguyen</h4>
                   <div class="testimonials-text" data-testimonials-text>
-                    <p>Dept of Operation kent.nguyen-sc@airliquide.com</p>
+                    <p>Dept of Operation — reference available on request</p>
                   </div>
                 </div>
               </li>
@@ -736,11 +746,10 @@
             <h2 class="h2 article-title">Contact</h2>
           </header>
 
-          <!-- Map: pinned to No. 117, Rd No. 2, Tan Phong District, Ho Chi Minh City -->
+          <!-- Map: District 7, Ho Chi Minh City (area-level, not a precise home address) -->
 
           <section class="mapbox" data-mapbox>
             <figure>
-              <!-- 22.992677, 120.22829 -->
 
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15680.26380761115!2d106.69499781122248!3d10.729396713314701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f96ae6b7c09%3A0x3440c5e67d8b63c5!2sT%C3%A2n%20Phong%2C%20District%207%2C%20Ho%20Chi%20Minh%20City%2C%20Vietnam!5e0!3m2!1sen!2s!4v1758382514654!5m2!1sen!2s"
@@ -753,7 +762,7 @@
               ></iframe>
 
               <figcaption style="font-size: 0.9rem; color: #667085; margin-top: 8px">
-                No. 117, No. 2 Rd, Tan Phong Ward, 7 District, Ho Chi Minh City, Vietnam
+                District 7, Ho Chi Minh City, Vietnam
               </figcaption>
             </figure>
           </section>
@@ -763,7 +772,13 @@
           <section class="contact-form">
             <ul class="social-list">
               <li class="social-item">
-                <a class="form-btn" href="mailto:datntt98@gmail.com" aria-label="Send email to Kent">
+                <a
+                  class="form-btn"
+                  href="#"
+                  data-c="bWFpbHRvOmRhdG50dDk4QGdtYWlsLmNvbQ=="
+                  data-keep-text
+                  aria-label="Send email to Kent"
+                >
                   <ion-icon name="paper-plane"></ion-icon>
 
                   <span>Contact</span>
@@ -809,7 +824,7 @@
 
   -->
 
-    <script src="./assets/js/script.js?v=20260708"></script>
+    <script src="./assets/js/script.js?v=20260710"></script>
 
     <!--
 
