@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Changelog — Nguyen Thanh Dat</title>
+
+  <!-- favicon -->
+  <link rel="shortcut icon" href="assets/images/Spring.jpg" type="image/x-icon">
+
+  <!-- reuse the site's design system (colors, reset, fonts, cards) -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- google font link -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /*-----------------------------------*\
+      #CHANGELOG PAGE — layered on top of assets/css/style.css
+    \*-----------------------------------*/
+
+    body {
+      color: var(--white-2);
+      min-height: 100vh;
+    }
+
+    .changelog-wrapper {
+      max-width: 800px;
+      margin-inline: auto;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    /* top bar */
+    .changelog-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      padding-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--light-gray);
+      font-size: var(--fs-7);
+      font-weight: var(--fw-500);
+      padding: 8px 14px;
+      background: var(--eerie-black-2);
+      border: 1px solid var(--jet);
+      border-radius: 12px;
+      transition: var(--transition-1);
+    }
+
+    .back-link:hover,
+    .back-link:focus-visible {
+      color: var(--orange-yellow-crayola);
+      border-color: var(--orange-yellow-crayola);
+    }
+
+    .back-link ion-icon { font-size: 16px; }
+
+    .source-link {
+      font-size: var(--fs-8);
+      color: var(--light-gray-70);
+    }
+
+    .source-link a { display: inline; color: var(--orange-yellow-crayola); }
+
+    /* hero */
+    .changelog-hero {
+      background: var(--bg-gradient-jet);
+      border: 1px solid var(--jet);
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: var(--shadow-1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .changelog-hero::before {
+      content: "";
+      position: absolute;
+      inset: -40% -20% auto auto;
+      width: 260px;
+      height: 260px;
+      background: var(--bg-gradient-yellow-1);
+      filter: blur(60px);
+      opacity: 0.35;
+      z-index: 0;
+    }
+
+    .changelog-hero > * { position: relative; z-index: 1; }
+
+    .changelog-eyebrow {
+      display: inline-block;
+      font-size: var(--fs-8);
+      font-weight: var(--fw-600);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--smoky-black);
+      background: var(--text-gradient-yellow);
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+
+    .changelog-hero h1 {
+      font-size: var(--fs-1);
+      color: var(--white-2);
+      margin-bottom: 8px;
+    }
+
+    .changelog-hero p {
+      color: var(--light-gray-70);
+      font-size: var(--fs-6);
+      max-width: 60ch;
+    }
+
+    .changelog-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .changelog-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: var(--fs-8);
+      color: var(--light-gray);
+      background: hsla(0, 0%, 100%, 0.05);
+      border: 1px solid var(--jet);
+      padding: 6px 10px;
+      border-radius: 10px;
+    }
+
+    .changelog-meta ion-icon { color: var(--orange-yellow-crayola); font-size: 14px; }
+
+    /* timeline of versions */
+    .version-timeline {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      padding-left: 26px;
+      border-left: 2px solid var(--jet);
+      margin-left: 6px;
+    }
+
+    .version-card { position: relative; }
+
+    .version-card::before {
+      content: "";
+      position: absolute;
+      top: 6px;
+      left: -32px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--orange-yellow-crayola);
+      box-shadow: 0 0 0 4px var(--smoky-black), 0 0 0 5px var(--jet);
+    }
+
+    .version-card.is-major::before {
+      width: 16px;
+      height: 16px;
+      left: -34px;
+      top: 4px;
+    }
+
+    .version-panel {
+      background: var(--eerie-black-2);
+      border: 1px solid var(--jet);
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: var(--shadow-1);
+    }
+
+    .version-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .version-tag {
+      font-size: var(--fs-3);
+      font-weight: var(--fw-600);
+      color: var(--orange-yellow-crayola);
+    }
+
+    .version-date {
+      font-size: var(--fs-7);
+      color: var(--light-gray-70);
+    }
+
+    .version-badge {
+      font-size: var(--fs-8);
+      font-weight: var(--fw-600);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 3px 9px;
+      border-radius: 20px;
+      border: 1px solid transparent;
+    }
+
+    .version-badge.major {
+      color: hsl(0, 70%, 70%);
+      background: hsla(0, 70%, 60%, 0.12);
+      border-color: hsla(0, 70%, 60%, 0.35);
+    }
+
+    .version-badge.minor {
+      color: var(--orange-yellow-crayola);
+      background: hsla(45, 100%, 72%, 0.1);
+      border-color: hsla(45, 100%, 72%, 0.3);
+    }
+
+    .version-badge.patch {
+      color: hsl(200, 70%, 70%);
+      background: hsla(200, 70%, 60%, 0.1);
+      border-color: hsla(200, 70%, 60%, 0.3);
+    }
+
+    .version-summary {
+      font-size: var(--fs-6);
+      color: var(--light-gray-70);
+      margin-bottom: 14px;
+    }
+
+    .change-group { margin-bottom: 14px; }
+    .change-group:last-of-type { margin-bottom: 16px; }
+
+    .change-group-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: var(--fs-7);
+      font-weight: var(--fw-600);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .change-group-title.added { color: hsl(140, 55%, 62%); }
+    .change-group-title.changed { color: var(--orange-yellow-crayola); }
+    .change-group-title.fixed { color: hsl(200, 70%, 68%); }
+    .change-group-title.removed { color: hsl(0, 65%, 68%); }
+
+    .change-group-title .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .change-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .change-list li {
+      display: list-item;
+      list-style: disc;
+      margin-left: 18px;
+      font-size: var(--fs-7);
+      color: var(--light-gray);
+      line-height: 1.6;
+    }
+
+    .change-list li strong { color: var(--white-2); }
+    .change-list li code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.92em;
+      color: var(--vegas-gold);
+      background: hsla(0, 0%, 100%, 0.06);
+      padding: 1px 5px;
+      border-radius: 4px;
+    }
+
+    .affected-box {
+      border-top: 1px solid var(--jet);
+      padding-top: 12px;
+      margin-top: 4px;
+    }
+
+    .affected-box-title {
+      font-size: var(--fs-8);
+      font-weight: var(--fw-600);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--light-gray-70);
+      margin-bottom: 8px;
+    }
+
+    .affected-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    /* reuse .project-tech-chip look from style.css but scoped so it still
+       works even if that class is ever renamed/removed */
+    .affected-chip {
+      font-size: var(--fs-8);
+      color: var(--light-gray);
+      background: hsla(0, 0%, 100%, 0.06);
+      border: 1px solid var(--jet);
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    .version-footer {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 4px;
+    }
+
+    .commit-link {
+      font-size: var(--fs-8);
+      color: var(--light-gray-70);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .commit-link:hover { color: var(--orange-yellow-crayola); }
+
+    .commit-link code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      color: inherit;
+    }
+
+    .changelog-footer {
+      text-align: center;
+      padding: 10px 0 30px;
+      color: var(--light-gray-70);
+      font-size: var(--fs-8);
+    }
+
+    .changelog-footer a { display: inline; color: var(--orange-yellow-crayola); }
+
+    @media (min-width: 580px) {
+      .changelog-wrapper { padding: 20px; }
+      .version-panel { padding: 25px; }
+    }
+
+    @media (min-width: 768px) {
+      .changelog-wrapper { padding-inline: 30px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="changelog-wrapper">
+
+    <!-- top bar -->
+    <div class="changelog-topbar">
+      <a href="./index.html" class="back-link">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+        <span>Back to resume</span>
+      </a>
+      <p class="source-link">
+        Source: <a href="./CHANGELOG.md" target="_blank" rel="noopener">CHANGELOG.md</a>
+      </p>
+    </div>
+
+    <!-- hero -->
+    <header class="changelog-hero">
+      <span class="changelog-eyebrow">Release Notes</span>
+      <h1>Changelog</h1>
+      <p>
+        Every notable update to this site, grouped by release — what changed, and which
+        section, file, or function it touched. Reconstructed from the project's git history.
+      </p>
+      <div class="changelog-meta">
+        <span><ion-icon name="pricetag-outline"></ion-icon> Latest: v2.1.1</span>
+        <span><ion-icon name="time-outline"></ion-icon> Updated Jul 10, 2026</span>
+        <span><ion-icon name="git-branch-outline"></ion-icon> 11 releases</span>
+      </div>
+    </header>
+
+    <!-- version timeline -->
+    <section class="version-timeline">
+
+      <!-- 2.1.1 -->
+      <div class="version-card">
+        <div class="version-panel">
+          <div class="version-head">
+            <span class="version-tag">v2.1.1</span>
+            <span class="version-badge patch">Patch</span>
+            <span class="version-date">Jul 10, 2026</span>
+          </div>
+          <p class="version-summary">Privacy touch-up on the sidebar contact info.</p>
+
+          <div class="change-group">
+            <p class="change-group-title changed"><span class="dot"></span>Changed</p>
+            <ul class="change-list">
+              <li>Masked the public phone number and swapped the sidebar email to a generic
+                contact address, reducing personal info exposed on the public page.</li>
+            </ul>
+          </div>
+
+          <div class="affected-box">
+            <p class="affected-box-title">Affected</p>
+            <div class="affected-chips">
+              <span class="affected-chip">index.html → .contacts-list</span>
+              <span class="affected-chip">Sidebar</span>
+            </div>
+          </div>
+
+          <div class="version-footer">
+            <a class="commit-link" href="https://github.com/DatNguyen998/Kent_Ng_Resume/commit/fe120d2" target="_blank" rel="noopener">
+              <code>fe120d2</code><ion-icon name="open-outline"></ion-icon>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.1.0 -->
+      <div class="version-card">
+        <div class="version-panel">
+          <div class="version-head">
+            <span class="version-tag">v2.1.0</span>
+            <span class="version-badge minor">Minor</span>
+            <span class="version-date">Jul 03, 2026</span>
+          </div>
+          <p class="version-summary">A new ERP project added to the Portfolio grid.</p>
+
+          <div class="change-group">
+            <p class="change-group-title added"><span class="dot"></span>Added</p>
+            <ul class="change-list">
+              <li>New <strong>US Sugar</strong> entry in the Portfolio grid (ERP category), with
+                description, tech tags, and outbound link.</li>
+            </ul>
+          </div>
+
+          <div class="change-group">
+            <p class="change-group-title changed"><span class="dot"></span>Changed</p>
+            <ul class="change-list">
+              <li>Page <code>&lt;title&gt;</code> simplified back to "Nguyen Thanh Dat — Business Analyst".</li>
+              <li>Minor markup cleanup/de-duplication around the portfolio project list.</li>
+            </ul>
+          </div>
+
+          <div class="affected-box">
+            <p class="affected-box-title">Affected</p>
+            <div class="affected-chips">
+              <span class="affected-chip">index.html → .project-list</span>
+              <span class="affected-chip">Portfolio</span>
+              <span class="affected-chip">&lt;title&gt;</span>
+            </div>
+          </div>
+
+          <div class="version-footer">
+            <a class="commit-link" href="https://github.com/DatNguyen998/Kent_Ng_Resume/commit/0ba11fc" target="_blank" rel="noopener">
+              <code>0ba11fc</code><ion-icon name="open-outline"></ion-icon>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.0.0 -->
+      <div class="version-card is-major">
+        <div class="version-panel">
+          <div class="version-head">
+            <span class="version-tag">v2.0.0</span>
+            <span class="version-badge major">Major</span>
+            <span class="version-date">Jul 02, 2026</span>
+          </div>
+          <p class="version-summary">
+            Portfolio filtering — broken since v1.5.0 — is fixed, plus new project detail
+            modals and scroll animations.
+          </p>
+
+          <div class="change-group">
+            <p class="change-group-title fixed"><span class="dot"></span>Fixed</p>
+            <ul class="change-list">
+              <li><strong>Portfolio filter was fully broken</strong> by three compounding bugs:
+                a <code>[data-selecct-value]</code> selector typo that threw on every click,
+                filtering by visible label text instead of the <code>data-value</code> key, and
+                a desktop filter-tag row using markup the JS/CSS active-state never targeted.
+                One handler now drives both the desktop tags and mobile dropdown correctly.</li>
+              <li>Broken asset references: favicon path and modal image paths.</li>
+              <li>Content bugs: page title, "Bussiness" → "Business" typo, reversed education
+                dates, map caption, Air Liquide category label, mismatched skill-bar
+                value/width pairs.</li>
+            </ul>
+          </div>
+
+          <div class="change-group">
+            <p class="change-group-title added"><span class="dot"></span>Added</p>
+            <ul class="change-list">
+              <li><strong>Project detail modals</strong> — clicking a portfolio card opens a
+                modal with description, tech chips, and an outbound link instead of navigating
+                away.</li>
+              <li><strong>Scroll-reveal animations</strong> via <code>IntersectionObserver</code>,
+                plus animated skill progress bars, with a <code>prefers-reduced-motion</code>
+                fallback.</li>
+            </ul>
+          </div>
+
+          <div class="change-group">
+            <p class="change-group-title removed"><span class="dot"></span>Removed</p>
+            <ul class="change-list">
+              <li>Unused jQuery, EmailJS, and Toastr script includes, and dead contact-form
+                JavaScript.</li>
+            </ul>
+          </div>
+
+          <div class="affected-box">
+            <p class="affected-box-title">Affected</p>
+            <div class="affected-chips">
+              <span class="affected-chip">script.js → filterFunc</span>
+              <span class="affected-chip">script.js → projectModalFunc</span>
+              <span class="affected-chip">script.js → IntersectionObserver reveal</span>
+              <span class="affected-chip">style.css → modal / chip / reveal styles</span>
+              <span class="affected-chip">index.html → Portfolio markup</span>
+            </div>
+          </div>
+
+          <div class="version-footer">
+            <a class="commit-link" href="https://github.com/DatNguyen998/Kent_Ng_Resume/commit/a4b87e5" target="_blank" rel="noopener">
+              <code>a4b87e5</code><ion-icon name="open-outline"></ion-icon>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1.7.0 -->
+      <div class="version-card">
+        <div class="version-panel">
+          <div class="version-head">
+            <span class="version-tag">v1.7.0</span>
+            <span class="version-badge minor">Minor</span>
+            <span class="version-date">May 13, 2026</span>
+          </div>
+          <p class="version-summary">Documentation-only update.</p>
+
+          <div class="change-group">
+            <p class="change-group-title changed"><span class="dot"></span>Changed</p>
+            <ul class="change-list">
+              <li>Rewrote <code>README.md</code> from a generic template into a personal
+                introduction (about the author, toolkit used, and project purpose).</li>
+            </ul>
+          </div>
+
+          <div class="affected-box">
+            <p class="affected-box-title">Affected</p>
+            <div class="affected-chips">
+              <span class="affected-chip">README.md only</span>
+              <span class="affected-chip">no site behavior changed</span>
+            </div>
+          </div>
+
+          <div class="version-footer">
+            <a class="commit-link" href="https://github.com/DatNguyen998/Kent_Ng_Resume/commit/ebe4116" target="_blank" rel="noopener">
+              <code>ebe4116</code><ion-icon name="open-outline"></ion-icon>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1.6.0 -->
+      <div class="version-card">
+        <div class="version-panel">
+          <div class="version-head">
+            <span class="version-tag">v1.6.0</span>
+            <span class="version-badge minor">Minor</span>
+            <span class="version-date">Mar 23, 2026</span>
+          </div>
+          <p class="version-summary">Education gets its own section, plus a second resume PDF.</p>
+
+          <div class="change-group">
+            <p class="change-group-title added"><span class="dot"></span>Added</p>
+            <ul class="change-list">
+              <li><code>assets/resume/Corporate Resume.pdf</code> — a second downloadable
+                resume file.</li>
+              <li>Dedicated <strong>Education</strong> section in the Resume tab, split out from
+                the Experience timeline.</li>
+            </ul>
+          </div>
+
+          <div class="change-group">
+            <p class="change-group-title changed"><span class="dot"></span>Changed</p>
+            <ul class="change-list">
+              <li>Large formatting pass across the Resume and Portfolio markup for readability;
+                no visual regression intended, but the diff touches most of
+                <code>index.html</code>.</li>
+            </ul>
+          </div>
+
+          <div class="affected-box">
+            <p class="affected-box-title">Affected</p>
+            <div class="affected-chips">
+              <span class="affected-chip">index.html → .timeline</span>
+              <span class="affected-chip">new Education section</span>
+              <span class="affected-chip">Portfolio markup formatting</span>
+            </div>
+          </div>
+
+          <div class="version-footer">
+            <a class="commit-link" href="https://github.com/DatNguyen998/Kent_Ng_Resume/commit/97e3e2b" target="_blank" rel="noopener">
+              <code>97e3e2b</code><ion-icon name="open-outline"></ion-icon>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1.5.0 -->
+      <div class="version-card">
+        <div class="version-panel">
+          <div class="version-head">
+            <span class="version-tag">v1.5.0</span>
+            <span class="version-badge minor">Minor</span>
+            <span class="version-date">Mar 22, 2026</span>
+          </div>
+          <p class="version-summary">
+            New Simple MDG role added; a filter-markup change here quietly broke the Portfolio
+            filter until v2.0.0.
+          </p>
+
+          <div class="change-group">
+            <p class="change-group-title added"><span class="dot"></span>Added</p>
+            <ul class="change-list">
+              <li>New <strong>Simple MDG LTD — SAP Business Analyst</strong> entry at the top of
+                the Experience timeline.</li>
+            </ul>
+          </div>
+
+          <div class="change-group">
+            <p class="change-group-title changed"><span class="dot"></span>Changed</p>
+            <ul class="change-list">
+              <li>Renamed the "Payment Platform ERP" service card to
+                <strong>"SAP middleware ERP"</strong>.</li>
+              <li>Updated testimonial name/content (Daniel Lewis → Hung Nguyen) and trimmed
+                placeholder Lorem Ipsum text.</li>
+              <li>Removed the "Embedded Systems" and "Research &amp; Development" service cards
+                (commented out), and the second (Ph.D) testimonial placeholder.</li>
+            </ul>
+          </div>
+
+          <div class="change-group">
+            <p class="change-group-title fixed"><span class="dot"></span>Regression <em style="font-style:normal; text-transform:none; font-weight:400; color:var(--light-gray-70);">(fixed in v2.0.0)</em></p>
+            <ul class="change-list">
+              <li>Desktop filter tags switched to <code>data-filter-btn</code> and dropdown
+                <code>data-value</code>s were rewritten to full lowercase category names —
+                neither was wired to the filter JavaScript, silently breaking the Portfolio
+                category filter.</li>
+            </ul>
+          </div>
+
+          <div class="affected-box">
+            <p class="affected-box-title">Affected</p>
+            <div class="affected-chips">
+              <span class="affected-chip">index.html → .timeline-list</span>
+              <span class="affected-chip">.service-list</span>
+              <span class="affected-chip">testimonials modal</span>
+              <span class="affected-chip">.filter-list / .select-list</span>
+            </div>
+          </div>
+
+          <div class="version-footer">
+            <a class="commit-link" href="https://github.com/DatNguyen998/Kent_Ng_Resume/commit/4dcd954" target="_blank" rel="noopener">
+              <code>4dcd954</code><ion-icon name="open-outline"></ion-icon>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1.4.0 -->
+      <div class="version-card">
+        <div class="version-panel">
+          <div class="version-head">
+            <span class="version-tag">v1.4.0</span>
+            <span class="version-badge minor">Minor</span>
+            <span class="version-date">Feb 08, 2026</span>
+          </div>
+          <p class="version-summary">Real project links replace placeholders.</p>
+
+          <div class="change-group">
+            <p class="change-group-title changed"><span class="dot"></span>Changed</p>
+            <ul class="change-list">
+              <li>Wired up real outbound links for the <strong>Ruby Angels Fashion</strong> and
+                <strong>Victoria Dang</strong> portfolio cards (previously <code>#</code>
+                placeholders).</li>
+              <li>Replaced the two placeholder "Business Strategy Consulting" cards (Eavesdrop,
+                Findingschools) with a real <strong>Air Liquide</strong> ERP entry.</li>
+            </ul>
+          </div>
+
+          <div class="affected-box">
+            <p class="affected-box-title">Affected</p>
+            <div class="affected-chips">
+              <span class="affected-chip">index.html → .project-list</span>
+              <span class="affected-chip">Portfolio</span>
+            </div>
+          </div>
+
+          <div class="version-footer">
+            <a class="commit-link" href="https://github.com/DatNguyen998/Kent_Ng_Resume/commit/093208a" target="_blank" rel="noopener">
+              <code>093208a</code><ion-icon name="open-outline"></ion-icon>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1.3.0 -->
+      <div class="version-card">
+        <div class="version-panel">
+          <div class="version-head">
+            <span class="version-tag">v1.3.0</span>
+            <span class="version-badge minor">Minor</span>
+            <span class="version-date">Nov 17 – 18, 2025</span>
+          </div>
+          <p class="version-summary">Small copy fix and markup clean-up.</p>
+
+          <div class="change-group">
+            <p class="change-group-title changed"><span class="dot"></span>Changed</p>
+            <ul class="change-list">
+              <li>Copy/typo fix in the About section ("workflow optimization" capitalization).</li>
+              <li>Broad re-indentation and de-duplication pass across the Portfolio and filter
+                markup.</li>
+            </ul>
+          </div>
+
+          <div class="affected-box">
+            <p class="affected-box-title">Affected</p>
+            <div class="affected-chips">
+              <span class="affected-chip">About copy</span>
+              <span class="affected-chip">Portfolio markup formatting</span>
+            </div>
+          </div>
+
+          <div class="version-footer">
+            <a class="commit-link" href="https://github.com/DatNguyen998/Kent_Ng_Resume/commit/f684058" target="_blank" rel="noopener">
+              <code>f684058</code><ion-icon name="open-outline"></ion-icon>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1.2.0 -->
+      <div class="version-card">
+        <div class="version-panel">
+          <div class="version-head">
+            <span class="version-tag">v1.2.0</span>
+            <span class="version-badge minor">Minor</span>
+            <span class="version-date">Oct 11 – 18, 2025</span>
+          </div>
+          <p class="version-summary">Nav clean-up, broken image paths and typo fixes.</p>
+
+          <div class="change-group">
+            <p class="change-group-title changed"><span class="dot"></span>Changed</p>
+            <ul class="change-list">
+              <li>Removed the unused <strong>Publications</strong> nav item (no matching page
+                existed).</li>
+              <li>Fixed broken portfolio image paths (<code>.assets/...</code> →
+                <code>./assets/...</code>).</li>
+              <li>Fixed the "Emterprises" → "Enterprises" typo and aligned
+                <code>data-category</code> values with display labels.</li>
+              <li>Added <strong>ERP Setup</strong> and <strong>Business Strategy Consultant</strong>
+                placeholder project cards.</li>
+              <li>Updated the testimonial reference's title/email, and extended the TM
+                Healthcare &amp; Beauty role's end date to "Present".</li>
+            </ul>
+          </div>
+
+          <div class="affected-box">
+            <p class="affected-box-title">Affected</p>
+            <div class="affected-chips">
+              <span class="affected-chip">.navbar-list</span>
+              <span class="affected-chip">.project-list</span>
+              <span class="affected-chip">testimonials</span>
+              <span class="affected-chip">Resume timeline dates</span>
+            </div>
+          </div>
+
+          <div class="version-footer">
+            <a class="commit-link" href="https://github.com/DatNguyen998/Kent_Ng_Resume/commit/b67a804" target="_blank" rel="noopener">
+              <code>b67a804</code><ion-icon name="open-outline"></ion-icon>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1.1.0 -->
+      <div class="version-card is-major">
+        <div class="version-panel">
+          <div class="version-head">
+            <span class="version-tag">v1.1.0</span>
+            <span class="version-badge major">Major content pivot</span>
+            <span class="version-date">Sep 20 – 27, 2025</span>
+          </div>
+          <p class="version-summary">
+            The whole resume was rewritten — from a Machine Learning / Robotics profile to the
+            current Business Analyst / ERP profile.
+          </p>
+
+          <div class="change-group">
+            <p class="change-group-title changed"><span class="dot"></span>Changed</p>
+            <ul class="change-list">
+              <li>Replaced ML/Robotics job history (Contrel Technology, NCKU Robotic Lab, D-Soft
+                JSC) with Business Analyst roles (RMIT University, TM HealthCare &amp; Beauty,
+                FPT Software).</li>
+              <li>Replaced education entries (NCKU Taiwan, Danang University of Technology) with
+                Danang University of Economics and Phan Chau Trinh High School.</li>
+              <li>Reworked Skills from ML/DL frameworks &amp; CV tooling to ERP systems, BA
+                tooling, and management tools.</li>
+              <li>Fixed contact/social links (corrected GitHub handle, fixed a doubled
+                <code>@gmail.com</code> email typo).</li>
+            </ul>
+          </div>
+
+          <div class="change-group">
+            <p class="change-group-title removed"><span class="dot"></span>Removed</p>
+            <ul class="change-list">
+              <li>The entire <strong>Publications</strong> section (2025 paper list) — not
+                applicable to the new profile.</li>
+            </ul>
+          </div>
+
+          <div class="affected-box">
+            <p class="affected-box-title">Affected</p>
+            <div class="affected-chips">
+              <span class="affected-chip">Sidebar contact/social links</span>
+              <span class="affected-chip">Resume timeline</span>
+              <span class="affected-chip">Skills section</span>
+              <span class="affected-chip">About section</span>
+            </div>
+          </div>
+
+          <div class="version-footer">
+            <a class="commit-link" href="https://github.com/DatNguyen998/Kent_Ng_Resume/commit/a367ad4" target="_blank" rel="noopener">
+              <code>a367ad4</code><ion-icon name="open-outline"></ion-icon>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1.0.0 -->
+      <div class="version-card is-major">
+        <div class="version-panel">
+          <div class="version-head">
+            <span class="version-tag">v1.0.0</span>
+            <span class="version-badge major">Initial release</span>
+            <span class="version-date">Sep 14 – 15, 2025</span>
+          </div>
+          <p class="version-summary">First launch of the site.</p>
+
+          <div class="change-group">
+            <p class="change-group-title added"><span class="dot"></span>Added</p>
+            <ul class="change-list">
+              <li>Sidebar profile card, About / Resume / Portfolio / Contact navigation.</li>
+              <li>Timeline-based Experience &amp; Education, skills bars, testimonials with
+                modal.</li>
+              <li>Portfolio grid with category filter, and a Google Maps contact block.</li>
+              <li>Base assets: <code>assets/css/style.css</code>,
+                <code>assets/js/script.js</code>, profile/portfolio images, and the first
+                downloadable resume PDF.</li>
+            </ul>
+          </div>
+
+          <div class="affected-box">
+            <p class="affected-box-title">Affected</p>
+            <div class="affected-chips">
+              <span class="affected-chip">Entire site</span>
+              <span class="affected-chip">index.html</span>
+              <span class="affected-chip">style.css</span>
+              <span class="affected-chip">script.js</span>
+            </div>
+          </div>
+
+          <div class="version-footer">
+            <a class="commit-link" href="https://github.com/DatNguyen998/Kent_Ng_Resume/commit/e5dc8f3" target="_blank" rel="noopener">
+              <code>e5dc8f3</code><ion-icon name="open-outline"></ion-icon>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <footer class="changelog-footer">
+      <p>Full detail lives in <a href="./CHANGELOG.md" target="_blank" rel="noopener">CHANGELOG.md</a> · &copy; 2026 Nguyen Thanh Dat</p>
+    </footer>
+
+  </div>
+
+  <!-- ionicon link -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
