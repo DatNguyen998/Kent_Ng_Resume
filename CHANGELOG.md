@@ -14,6 +14,20 @@ A rendered, browsable version of this file lives at [`changelog.html`](./changel
 
 ---
 
+## [2.2.0] - 2026-08-20
+
+### Changed
+- Updated the sidebar role to **Technical Business Analyst** and added a focused specialization in
+  SAP, Odoo ERP, and finance systems.
+- Rewrote the About introduction in clear, natural English while retaining the existing $8M system
+  rollout, 30% processing-time improvement, CBAP preparation, professional interests, and links.
+- Kept the intentionally masked public contact details unchanged.
+
+**Affected:** Sidebar title and About introduction (`index.html`), changelog documentation
+(`CHANGELOG.md`, `changelog.html`)
+
+---
+
 ## [2.1.1] - 2026-07-10
 
 ### Changed
@@ -198,6 +212,7 @@ section, About section
 
 ---
 
+[2.2.0]: https://github.com/DatNguyen998/Kent_Ng_Resume/commit/cfa6f9d
 [2.1.1]: https://github.com/DatNguyen998/Kent_Ng_Resume/commit/fe120d2
 [2.1.0]: https://github.com/DatNguyen998/Kent_Ng_Resume/commit/0ba11fc
 [2.0.0]: https://github.com/DatNguyen998/Kent_Ng_Resume/commit/a4b87e5
